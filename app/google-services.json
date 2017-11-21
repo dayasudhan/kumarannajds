@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "758813854724",
+    "firebase_url": "https://kumarannajds.firebaseio.com",
+    "project_id": "kumarannajds",
+    "storage_bucket": "kumarannajds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758813854724:android:09a79fb8583b9afd",
+        "android_client_info": {
+          "package_name": "com.kuruvatech.kumarannajds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758813854724-e2q2nd361gb8jrgtct7co2fsg6jnb0t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzg0Sl_ekudEie1INkGziiByzu4-eA4bw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

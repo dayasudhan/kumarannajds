@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/background_color"
+tools:context="com.kuruvatech.kumarannajds.FeedDetail">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar2"
+        layout="@layout/toolbar" />
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="5dp"
+        android:id="@+id/order_details_lay"
+        >
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/detail_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/img_background"
+            android:layout_below="@+id/youtube_frame"
+            android:layout_alignLeft="@+id/detail_feed_description"
+            android:layout_alignStart="@+id/detail_feed_description"
+            android:layout_alignParentRight="true"
+             />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Headlines"
+            android:textColor="@color/title_text_color"
+            android:id="@+id/detail_feed_name"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Description comes here"
+            android:id="@+id/detail_feed_description"
+            android:textColor="@color/secondary_text_color"
+            android:textSize="15sp"
+            android:layout_marginTop="3dp"
+            android:layout_below="@+id/detail_feed_name"
+            android:layout_alignLeft="@+id/feed_name"
+            android:layout_alignStart="@+id/detail_feed_name" />
+
+        <FrameLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/youtube_frame"
+            android:layout_below="@+id/detail_feed_description"
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+            <com.google.android.youtube.player.YouTubeThumbnailView
+                android:id="@+id/youtubethumbnailview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/play_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:src="@drawable/youtube_play"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detail_recycler_view"
+
+            android:layout_toRightOf="@+id/detail_recycler_view"
+            android:layout_alignParentRight="true"
+            android:layout_alignLeft="@+id/detail_feed_name"
+            android:layout_alignStart="@+id/detail_feed_name"
+
+            android:orientation="horizontal" >
+
+
+            <ImageView
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:src="@mipmap/ic_action_share_jds"
+                android:gravity="center_horizontal|center_vertical"
+                android:id="@+id/detail_shareit"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="There are no products in this category"
+            android:id="@+id/textView_no_product"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:visibility="invisible"
+            android:textColor="@color/title_text_color"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="BACK"-->
+            <!--android:textColor="@color/titleTextColor"-->
+            <!--android:id="@+id/back_button"-->
+            <!--android:background="@drawable/buttonselector"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentRight="true" />-->
+    </RelativeLayout>
+    </ScrollView>
+</LinearLayout>
+</RelativeLayout>

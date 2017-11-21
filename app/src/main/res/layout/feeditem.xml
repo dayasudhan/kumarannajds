@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="10dp"
+
+    android:paddingBottom="10dp"
+    android:background="@drawable/list_background" android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btShowmore"
+        android:layout_alignLeft="@+id/feed_description"
+        android:layout_alignStart="@+id/feed_description"  />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Headlines"
+        android:textColor="@color/title_text_color"
+        android:id="@+id/feed_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Description comes here"
+        android:id="@+id/feed_description"
+        android:textColor="@color/secondary_text_color"
+        android:textSize="15sp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/feed_name"
+        android:layout_alignLeft="@+id/feed_name"
+        android:layout_alignStart="@+id/feed_name" />
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/youtube_frame"
+        android:layout_below="@+id/feed_description"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+            <com.google.android.youtube.player.YouTubeThumbnailView
+                android:id="@+id/youtubethumbnailview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/play_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center"
+                android:src="@drawable/youtube_play"/>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btShowmore"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/youtube_frame"
+        android:text="Showmore..."
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_blue_light"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_view"
+        android:layout_toRightOf="@+id/recycler_view"
+        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/feed_name"
+        android:layout_alignStart="@+id/feed_name"
+        android:layout_marginTop="9dp"
+        android:orientation="horizontal" >
+
+
+        <ImageView
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:src="@mipmap/ic_action_share_jds"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/shareit"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp" />
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
+    <string name="profile_name">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
+    <string name="profile_phone">9566229075</string>
+    <string name="profile_email">hdkumaraswamy@gmail.com</string>
+    <string name="username">hdk</string>
+    <string name="titletext">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_splash">SplashActivity</string>
+</resources>
