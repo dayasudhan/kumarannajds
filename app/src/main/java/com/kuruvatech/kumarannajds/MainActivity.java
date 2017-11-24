@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kuruvatech.kumarannajds.fragment.AboutFragment;
 import com.kuruvatech.kumarannajds.fragment.ImageFragment;
 import com.kuruvatech.kumarannajds.fragment.MainFragment;
 import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                     frag = new MainFragment();
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    frag = new ShareAppFragment();
+                    frag = new ShareAppFrag dment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
@@ -168,6 +169,11 @@ public class MainActivity extends AppCompatActivity {
                 else if(itemId == R.id.images)
                 {
                     frag = new ImageFragment();
+                    isMainFragmentOpen =  false;
+                }
+                else if(itemId == R.id.about_candiate)
+                {
+                    frag = new AboutFragment();
                     isMainFragmentOpen =  false;
                 }
 //                else if(itemId == R.id.videos3)

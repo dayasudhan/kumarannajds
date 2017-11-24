@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubeStandalonePlayer;
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.google.gson.Gson;
@@ -174,9 +175,11 @@ public class FeedAdapter extends BaseAdapter implements YouTubeThumbnailView.OnI
 
                     @Override
                     public void onClick(View arg0) {
-                        Intent i = new Intent(con, YouTubePlayerFragmentActivity.class);
-                        i.putExtra("VIDEO_ID", mFeedList.get(position).getVideoid());
-                        con.startActivity(i);
+//                        Intent i = new Intent(con, YouTubePlayerFragmentActivity.class);
+//                        i.putExtra("VIDEO_ID", mFeedList.get(position).getVideoid());
+//                        con.startActivity(i);
+                        Intent intent = YouTubeStandalonePlayer.createVideoIntent((Activity) con, API_KEY, mFeedList.get(position).getVideoid(),0,true,false);
+                        con.startActivity(intent);
 
                     }
                 });

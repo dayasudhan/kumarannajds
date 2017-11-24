@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,18 +45,32 @@ public class VideoFragment extends Fragment {
     ArrayList<String> imageList;
     RecyclerView recyclerView;
     YoutubeRecyclerAdapter adapter;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.video_fragment_item_list, container, false);
-
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         recyclerView=(RecyclerView)view.findViewById(R.id.video_list);
         recyclerView.setHasFixedSize(true);
         //to use RecycleView, you need a layout manager. default is LinearLayoutManager
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
+        isSwipeRefresh = false;
         getVideos();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                isSwipeRefresh = true;
+                getVideos();
+            }
+
+        });
+
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, R.color.colorAccent, R.color.colorPrimaryDark);
+        swipeRefreshLayout.setProgressBackgroundColor(android.R.color.transparent);
         return view;
     }
     @Override
@@ -97,12 +112,13 @@ public class VideoFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             if(isSwipeRefresh == false) {
-                dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.custom_progress_dialog);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                dialog.show();
-                dialog.setCancelable(true);
+                swipeRefreshLayout.setRefreshing(true);
+//                dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent);
+//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                dialog.setContentView(R.layout.custom_progress_dialog);
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+//                dialog.show();
+//                dialog.setCancelable(true);
             }
 
         }
@@ -163,11 +179,8 @@ public class VideoFragment extends Fragment {
 
         }
         protected void onPostExecute(Boolean result) {
-            if(dialog != null && isSwipeRefresh ==false)
-                dialog.cancel();
-
-//            if(swipeRefreshLayout != null)
-//                swipeRefreshLayout.setRefreshing(false);
+            if(swipeRefreshLayout != null)
+                swipeRefreshLayout.setRefreshing(false);
             isSwipeRefresh = false;
             if(getActivity() != null) {
                 if (result == false) {

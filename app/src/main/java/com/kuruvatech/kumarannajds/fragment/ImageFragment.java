@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,9 +46,11 @@ public class ImageFragment extends Fragment {
     private static final String TAG_URL = "url";
     RecyclerView recyclerView;
     Adapter adapter;
-    boolean isSwipeRefresh =true;
+   // boolean isSwipeRefresh =true;
     ArrayList<FeedItem> feedList;
     ArrayList<String> imageList;
+
+    //private SwipeRefreshLayout swipeRefreshLayout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +59,8 @@ public class ImageFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
+//            swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
+//            isSwipeRefresh = false;
             recyclerView = (RecyclerView) view;
 
             GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
@@ -77,7 +82,20 @@ public class ImageFragment extends Fragment {
                         }
                     })
             );
+//            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//                @Override
+//                public void onRefresh() {
+//                    isSwipeRefresh = true;
+//                    getImages();
+//                }
+//
+//            });
+//
+//            swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, R.color.colorAccent, R.color.colorPrimaryDark);
+//            swipeRefreshLayout.setProgressBackgroundColor(android.R.color.transparent);
+
         }
+
         return view;
     }
     @Override
@@ -116,14 +134,9 @@ public class ImageFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            if(isSwipeRefresh == false) {
-                dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.custom_progress_dialog);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                dialog.show();
-                dialog.setCancelable(true);
-            }
+//            if(isSwipeRefresh == false) {
+//                swipeRefreshLayout.setRefreshing(true);
+//            }
 
         }
 
@@ -173,12 +186,9 @@ public class ImageFragment extends Fragment {
 
         }
         protected void onPostExecute(Boolean result) {
-            if(dialog != null && isSwipeRefresh ==false)
-                dialog.cancel();
-
 //            if(swipeRefreshLayout != null)
 //                swipeRefreshLayout.setRefreshing(false);
-            isSwipeRefresh = false;
+//            isSwipeRefresh = false;
             if(getActivity() != null) {
                 if (result == false) {
 
@@ -203,7 +213,7 @@ public class ImageFragment extends Fragment {
             }
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Shanthanagowda MLA");
+        builder.setTitle(getString(R.string.app_name));
         builder.setMessage(message).setNeutralButton("Ok", dialogClickListeneryesno)
                 .setIcon(R.drawable.ic_action_about).show();
 

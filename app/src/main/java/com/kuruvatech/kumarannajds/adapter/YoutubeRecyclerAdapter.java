@@ -118,7 +118,7 @@ public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycler
         @Override
         public void onClick(View v) {
 
-            Intent intent = YouTubeStandalonePlayer.createVideoIntent((Activity) ctx, API_KEY, feedList.get(getLayoutPosition()).getVideoid());
+            Intent intent = YouTubeStandalonePlayer.createVideoIntent((Activity) ctx, API_KEY, feedList.get(getLayoutPosition()).getVideoid(),0,true,false);
             ctx.startActivity(intent);
         }
     }
