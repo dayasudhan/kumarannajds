@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                     frag = new MainFragment();
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    frag = new ShareAppFrag dment();
+                    frag = new ShareAppFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
