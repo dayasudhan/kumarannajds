@@ -10,8 +10,9 @@
         android:name="com.kuruvatech.election.fragment.ImageFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+    android:background="@color/black2"
         tools:context="com.kuruvatech.kumarannajds.fragment.ImageFragment"
     />
 <!--</android.support.v4.widget.SwipeRefreshLayout>-->

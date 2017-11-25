@@ -27,9 +27,9 @@
             >
 
 
-            <ImageView android:id="@+id/SingleView"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
+            <com.kuruvatech.kumarannajds.utils.TouchImageView android:id="@+id/SingleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_above="@+id/imagesharebutton2"/>
             <ImageView
