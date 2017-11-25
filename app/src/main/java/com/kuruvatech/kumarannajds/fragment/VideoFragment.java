@@ -206,7 +206,7 @@ public class VideoFragment extends Fragment {
             }
         };
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Shanthanagowda MLA");
+        builder.setTitle(getString(R.string.app_name));
         builder.setMessage(message).setNeutralButton("Ok", dialogClickListeneryesno)
                 .setIcon(R.drawable.ic_action_about).show();
 

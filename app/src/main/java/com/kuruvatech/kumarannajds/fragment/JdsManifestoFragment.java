@@ -1,45 +1,33 @@
 package com.kuruvatech.kumarannajds.fragment;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.google.gson.Gson;
-import com.kuruvatech.kumarannajds.MainActivity;
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.RecyclerItemClickListener;
 import com.kuruvatech.kumarannajds.SingleViewActivity;
-import com.kuruvatech.kumarannajds.YouTubePlayerFragmentActivity;
 import com.kuruvatech.kumarannajds.adapter.Adapter;
-import com.kuruvatech.kumarannajds.adapter.FeedAdapter;
 import com.kuruvatech.kumarannajds.model.FeedItem;
-import com.kuruvatech.kumarannajds.utils.Constants;
 import com.kuruvatech.kumarannajds.utils.ImageLoader;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
 
 import java.util.ArrayList;
 
 
-public class AboutFragment extends Fragment{
+public class JdsManifestoFragment extends Fragment{
 
     View rootview;
     SessionManager session;

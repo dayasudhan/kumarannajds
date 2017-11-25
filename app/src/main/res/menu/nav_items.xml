@@ -9,28 +9,29 @@
         <item android:id="@+id/main"
             android:title="Home"
             android:icon="@mipmap/ic_nav_home_congress" />
-        <item android:id="@+id/images"
-            android:title="Image Gallery"
-            android:icon="@mipmap/ic_nav_image_congress" />
-        <item android:id="@+id/videos"
-            android:title="Video Gallery"
-            android:icon="@mipmap/ic_nav_video_congress" />
-
         <item android:id="@+id/about_candiate"
             android:title="About Kumaraswamy"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/as_a_position"
             android:title="As a Chief Minister"
             android:icon="@mipmap/ic_nav_video_congress" />
-        <item android:id="@+id/Achievements"
+        <item android:id="@+id/achievements"
             android:title="Achievements"
             android:icon="@mipmap/ic_nav_video_congress" />
-        <item android:id="@+id/Janatadarshan"
+        <item android:id="@+id/janatadarshan"
             android:title="Janatadarshan"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/manifesto"
             android:title="JDS Manifesto"
             android:icon="@mipmap/ic_nav_video_congress" />
+        <item android:id="@+id/images"
+            android:title="Image Gallery"
+            android:icon="@mipmap/ic_nav_image_congress" />
+        <item android:id="@+id/videos"
+            android:title="HDK TV"
+            android:icon="@mipmap/ic_nav_video_congress" />
+
+
         <item android:id="@+id/invite"
             android:title="Share This App"
             android:icon="@mipmap/ic_nav_share_congress" />

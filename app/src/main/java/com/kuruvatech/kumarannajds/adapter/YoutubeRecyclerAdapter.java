@@ -33,7 +33,10 @@ public class YoutubeRecyclerAdapter extends RecyclerView.Adapter<YoutubeRecycler
     ArrayList<FeedItem> feedList;
     Context ctx;
     public static final String API_KEY = "AIzaSyBRLKO5KlEEgFjVgf4M-lZzeGXW94m9w3U";
-    public YoutubeRecyclerAdapter(Context context , ArrayList<FeedItem> afeedList) {
+    public
+
+
+    YoutubeRecyclerAdapter(Context context , ArrayList<FeedItem> afeedList) {
         this.ctx = context;
         feedList = afeedList;
     }

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="congress_toolbar">#33ABF9</color>
-    <color name="jds_toolbar">#008000</color>
-    <color name="jds_background">#004000</color>
+    <color name="jds_toolbar">#65C178</color>
+    <color name="jds_background">#459F4E</color>
+    <color name="jds_toolbar2">#008000</color>
+    <color name="jds_background3">#004000</color>
+    <color name="fern">#65C178</color>
     <color name="bjp_toolbar">#ff8000</color>
     <color name="gaganprimary">#F5F5F5</color>
     <color name="gaganparrotgreen6">#f6f6f6</color>
@@ -59,6 +62,7 @@
     <color name="colorAccent1">#FF4081</color>
 
     <!-- Screens background color-->
+    <color name="black2">#000000</color>
     <color name="bg_screen1">#000000</color>
     <color name="bg_screen2">#b2b2b2</color>
     <color name="bg_screen3">#b2b2b2</color>

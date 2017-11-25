@@ -1,45 +1,33 @@
 package com.kuruvatech.kumarannajds.fragment;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 import com.google.gson.Gson;
-import com.kuruvatech.kumarannajds.MainActivity;
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.RecyclerItemClickListener;
 import com.kuruvatech.kumarannajds.SingleViewActivity;
-import com.kuruvatech.kumarannajds.YouTubePlayerFragmentActivity;
 import com.kuruvatech.kumarannajds.adapter.Adapter;
-import com.kuruvatech.kumarannajds.adapter.FeedAdapter;
 import com.kuruvatech.kumarannajds.model.FeedItem;
-import com.kuruvatech.kumarannajds.utils.Constants;
 import com.kuruvatech.kumarannajds.utils.ImageLoader;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
 
 import java.util.ArrayList;
 
 
-public class AboutFragment extends Fragment{
+public class AachivementsFragment extends Fragment{
 
     View rootview;
     SessionManager session;
@@ -163,13 +151,34 @@ public class AboutFragment extends Fragment{
 
     private void initContent() {
         feedItem =  new FeedItem();
-        feedItem.setDescription("Haradanahalli Devegowda Kumaraswamy is a young and impeccable polititician of Karnataka.He is one of the sons of former Prime Minister Sri. H.D. Devegowda .He is popularly known as Kumaranna among his friends and followers he is one of the great politician who have huge Followers because of his dynamic approach.\n" +
-                "\n" +
-                "Kumaraswamy is the 18th Chief minister of Karnataka .When initially Kumaraswamy took over as the Chief Minister everyone thought he is a chip of old block doing nothing but paying lip sympathy to the rural poor and attacking anything urban. But he proved everyone wrong, his priorities were clear from day 1 development of the state was top of his agenda no rural-urban divide. he put Bangalore back on the rails. he made it clear that the industries are given better facility so that Bangalore should be investor friendly. He also cleared all infrastructure projects\n" +
-                "\n" +
-                "He started touring the nooks and corners of the state interacted with the people took note of their problem and instructed officials to help them with a warning that he would visit again and seek action taken report .In Bangalore he started weekly Janatha Darshana which was biggest popular programe\n" +
-                "\n" +
-                "Kumaraswamy has effectively established his credentials through people friendly programes benefiting both rural and urban masses, he also unwearyingly supported the industries and was also committed towards improving infrastructure and facilities in Karnataka he gave top priority to up gradation of the infrastructure in Bangalore as well as those areas in the outskirts of Bangalore by taking up several projects he also extended his cooperation to IT & BT industries which were responsible for Bangalore to carve a name on the world map. Kumaraswamy was popular among people because of pro-people programes like village stay and onetime loan waiver to farmers ,arrack and lottery ban bicycle for girl students , Janatha darshana.");
+        feedItem.setDescription("Packages of Rs.2689.64 Crore for six districts which reported high incidence of farmer suicides. The district are Belguam,Hassan,Chickmagalore ,Chitradirga,shimaga and Kodagu\n" +
+                "Moved by the grievances from the women whom he met during his Janatha darshana and village stay where they complained about their husbands who are drunkards and there families were in trouble from Arrack and lottery Kumaraswamy took a decision of Banning Arrack and Lottery.\n" +
+                "Suvarna Karnataka Udyanagala Pratistana where in all garden and parks belonging to the government will be taken care of.\n" +
+                "Swavalambana Scheme lending money to women engaged in fishing at the rate of 4%.\n" +
+                "Karnataka is the only state next to Sikkim where decentralization of power has been implemented in letter as the spirit as envisaged in 73rd amendment to the constitution.\n" +
+                "‘Suvarna Kayaka Udyoga Shikshana Yojane’ has been launched. The scheme aims to identify the needs of the organized sectors for skilled man power in various trades and to train qualified eligible youths to undergo hands-on training. The expenditure on training is to be shared equally by industry and the Government. This Public Private Partnership will provide employment opportunities to the rural and urban youth of the State.\n" +
+                "Declining sex ratio is a matter of great concern . To arrest the trend, the Kumaraswamy Government has launched a novel scheme called “Bhagyalakshmi” to protect the girl child and change society’s attitude towards her. Under the scheme, an amount Rs. 10,000 is deposited in the name of each female child born after 31st March 2006\n" +
+                "Waving loan up to 25000 for all the farmers of Karnataka .\n" +
+                "Jawaharlal Nehru national Urban renewal mission scheme for improving quality of life of slum dwellers.\n" +
+                "Reduced the interest burden of all institutional loans to farmers to 4% as has in respect of the cooperative sector.\n" +
+                "Announced the package 0f 7000 crore rupees for the welfare of the farmers.\n" +
+                "70% of the application received in janathadarshana were solved and 25 crore Rupees were given directly to the people whom he met in janathadarshana.\n" +
+                "Suvarna Gramodaya Program integrating the Implementation of various development programmes and providing infrastructure facilities comprehensively to transform 1000 villages every year into model villages\n" +
+                "Work on alamatti dam was speeded up and it was also presented to nation during his tenure.\n" +
+                "Water projects like siganalur project, yaragol project in kolar,chimalagi project in Bijapur and also concentrated on Badra projectwhich can provide water for Tumkur and Kolar.\n" +
+                "Bruhat Bangalore project in which the rural parts of Bangalore were inculeded into Bangalore by which the basic infrastructure of those places were improved.\n" +
+                "Constituted a committee to deal with land Mafia which had aquried the government lands illegally and recovered around 40 thousand acres of land from land mafia\n" +
+                "Ramanagara and chikkaballapura were made as district keeping in mind that Bangalore growing fast and to create an alternate place for industrial growth.\n" +
+                "Special high court circuit bench was granted to North Karnataka where people had to travel to Bangalore for there court cases\n" +
+                "716 primary schools 1000 high schools 500 pu colleges and 184 degree colleges 7 engineering colleges 6 government medical college were presented for educational growth\n" +
+                "To motivate the Students of rural Karnataka towards education and control the dropout from the school especially among girl students the Kumaraswamy government started a scheme where bicycles were distributed for the students who study in high school ,which was a very popular programes.\n" +
+                "Udyogini,Asare ,Amrutha programes were introduced for the welfare of women.\n" +
+                "Giving loan at the rate of 4% interest to Stree Shakti groups to improve credit to self employed individuals.\n" +
+                "350 hostels for the welfare of the SC/ST students were provided,350 new Morarji hostel were sanctioned.\n" +
+                "5 acre land worth Rs 90 crore was given to Haj committee to facilitate the Haj Pilgrims.\n" +
+                "120 crore rupees were reserved for the welfare of minority communities.\n" +
+                "Waqf board was given additional 9 crore rupees along with the 13 crore Which was given every year.\n" +
+                "190 Km of Bangalore road widening project was taken up.");
     }
 
 

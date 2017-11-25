@@ -24,8 +24,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kuruvatech.kumarannajds.fragment.AachivementsFragment;
 import com.kuruvatech.kumarannajds.fragment.AboutFragment;
+import com.kuruvatech.kumarannajds.fragment.CmFragment;
 import com.kuruvatech.kumarannajds.fragment.ImageFragment;
+import com.kuruvatech.kumarannajds.fragment.JanathadarshanaFragment;
+import com.kuruvatech.kumarannajds.fragment.JdsManifestoFragment;
 import com.kuruvatech.kumarannajds.fragment.MainFragment;
 import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
 import com.kuruvatech.kumarannajds.fragment.VideoFragment;
@@ -174,6 +178,26 @@ public class MainActivity extends AppCompatActivity {
                 else if(itemId == R.id.about_candiate)
                 {
                     frag = new AboutFragment();
+                    isMainFragmentOpen =  false;
+                }
+                else if(itemId == R.id.as_a_position)
+                {
+                    frag = new CmFragment();
+                    isMainFragmentOpen =  false;
+                }
+                else if(itemId == R.id.achievements)
+                {
+                    frag = new AachivementsFragment();
+                    isMainFragmentOpen =  false;
+                }
+                else if(itemId == R.id.janatadarshan)
+                {
+                    frag = new JanathadarshanaFragment();
+                    isMainFragmentOpen =  false;
+                }
+                else if(itemId == R.id.manifesto)
+                {
+                    frag = new JdsManifestoFragment();
                     isMainFragmentOpen =  false;
                 }
 //                else if(itemId == R.id.videos3)
