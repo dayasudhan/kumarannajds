@@ -187,9 +187,9 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                                 feedItem.setVideoid(feed_object.getString(TAG_VIDEO));
                             }
 
-                            if (feed_object.has(TAG_DESCRIPTION))
-
+                            if (feed_object.has(TAG_DESCRIPTION)) {
                                 feedItem.setDescription(TextUtils.htmlEncode(feed_object.getString(TAG_DESCRIPTION)));
+                            }
                             if (feed_object.has(TAG_FEEDIMAGES)) {
                                 JSONArray feedimagesarray = feed_object.getJSONArray(TAG_FEEDIMAGES);
                                     ArrayList<String> strList = new ArrayList<String>();

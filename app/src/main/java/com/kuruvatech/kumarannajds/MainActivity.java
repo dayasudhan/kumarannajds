@@ -1,7 +1,12 @@
 
 package com.kuruvatech.kumarannajds;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.ActivityManager;
@@ -36,9 +41,10 @@ import com.kuruvatech.kumarannajds.fragment.VideoFragment;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
 import com.splunk.mint.Mint;
 import com.google.firebase.messaging.FirebaseMessaging;
-//import com.google.android.gms.appindexing.AppIndex;
-//import com.google.android.gms.common.api.GoogleApiClient;
-//import com.splunk.mint.Mint;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     TextView name,email,phno;
     private boolean isMainFragmentOpen;
     private boolean isdrawerbackpressed;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     public boolean isOnline(Context context) {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -70,11 +78,19 @@ public class MainActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
+
+
+
         setNavigationDrawer();
         setToolBar();
         FirebaseMessaging.getInstance().subscribeToTopic("news");
-
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+//
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
 //        if (!checkNotificationListenerServiceRunning()) {
 //            Toast.makeText(getApplicationContext(),"hi update 1",Toast.LENGTH_LONG).show();
 //            startService(new Intent(this, NotificationListener.class));
@@ -85,14 +101,14 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 //        notificationManager.cancelAll();
-        String notification=getIntent().getStringExtra("notificationFragment");
-        if (notification!=null &&notification.equals("fcm")) {
-            try {
-                MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.frame);
-                fragment.getFeeds();
-            } catch (ClassCastException e){
-            }
-        }
+//        String notification=getIntent().getStringExtra("notificationFragment");
+//        if (notification!=null &&notification.equals("fcm")) {
+//            try {
+//                MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.frame);
+//                fragment.getFeeds();
+//            } catch (ClassCastException e){
+//            }
+//        }
         if (!isOnline(MainActivity.this))
         {
             try {
@@ -147,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 //        name.setText(session.getName());
 //        phno.setText(session.getKeyPhone());
 //        email.setText(session.getEmail());
-        transaction.replace(R.id.frame, new MainFragment());
+//        transaction.replace(R.id.frame, new AboutFragment());
         isMainFragmentOpen =  true;
         transaction.commit();
 
@@ -156,48 +172,56 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
                 Fragment frag = null;
+
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.main) {
-                    frag = new MainFragment();
+                    viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    frag = new ShareAppFragment();
+                    viewPager.setCurrentItem(8);
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
                 {
+                    viewPager.setCurrentItem(7);
 //                    startActivity(new Intent(getApplicationContext(),CustomPlayerControlActivity.class));
-                    frag = new VideoFragment();
+                  //  frag = new VideoFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.images)
                 {
-                    frag = new ImageFragment();
+                    viewPager.setCurrentItem(6);
+                  //  frag = new ImageFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.about_candiate)
                 {
-                    frag = new AboutFragment();
+                    viewPager.setCurrentItem(1);
+                    //frag = new AboutFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.as_a_position)
                 {
-                    frag = new CmFragment();
+                    viewPager.setCurrentItem(2);
+//                    frag = new CmFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.achievements)
                 {
-                    frag = new AachivementsFragment();
+                    viewPager.setCurrentItem(3);
+                  //  frag = new AachivementsFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.janatadarshan)
                 {
-                    frag = new JanathadarshanaFragment();
+                    viewPager.setCurrentItem(4);
+                //    frag = new JanathadarshanaFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.manifesto)
                 {
-                    frag = new JdsManifestoFragment();
+                    viewPager.setCurrentItem(5);
+                 ///   frag = new JdsManifestoFragment();
                     isMainFragmentOpen =  false;
                 }
 //                else if(itemId == R.id.videos3)
@@ -208,19 +232,31 @@ public class MainActivity extends AppCompatActivity {
 //                {
 //                    startActivity(new Intent(getApplicationContext(),YouTubePlayerAcivity.class));
 //                }
-                if (frag != null) {
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.frame, frag);
-                    transaction.commit();
-                    dLayout.closeDrawers();
-                    return true;
-                }
-
-                return false;
+//                if (frag != null) {
+//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.frame, frag);
+//                    transaction.commit();
+//
+//                    return true;
+//                }
+                dLayout.closeDrawers();
+                return true;
             }
         });
     }
-
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new MainFragment(), "Home");
+        adapter.addFragment(new AboutFragment(), "About Kumaraswamy");
+        adapter.addFragment(new CmFragment(), "As a Chief Minister");
+        adapter.addFragment(new AachivementsFragment(), "Achievements");
+        adapter.addFragment(new JanathadarshanaFragment(), "Janatadarshan");
+        adapter.addFragment(new JdsManifestoFragment(), "JDS Manifesto");
+        adapter.addFragment(new ImageFragment(), "Image Gallery");
+        adapter.addFragment(new VideoFragment(), "HDK TV");
+        adapter.addFragment(new ShareAppFragment(), "Share This App");
+        viewPager.setAdapter(adapter);
+    }
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
@@ -232,13 +268,13 @@ public class MainActivity extends AppCompatActivity {
                 dLayout.openDrawer(GravityCompat.START);
                 isdrawerbackpressed = true;
             }
-            else {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frame, new MainFragment());
-                isMainFragmentOpen = true;
-                transaction.commit();
-                isdrawerbackpressed = false;
-            }
+//            else {
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.frame, new MainFragment());
+//                isMainFragmentOpen = true;
+//                transaction.commit();
+//                isdrawerbackpressed = false;
+//            }
         } else {
             //super.onBackPressed();
             if (doubleBackToExitPressedOnce) {
@@ -283,5 +319,52 @@ public class MainActivity extends AppCompatActivity {
 
         }
         return false;
+    }
+
+
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        int id = item.getItemId();
+//
+//        if (id == R.id.about_candiate) {
+//            viewPager.setCurrentItem(0);
+//        } else if (id == R.id.achievements) {
+//            viewPager.setCurrentItem(1);
+//        } else if (id == R.id.as_a_position) {
+//            viewPager.setCurrentItem(2);
+//        }
+//
+//        drawer.closeDrawer(GravityCompat.START);
+//        return true;
+//
+//    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
     }
 }
