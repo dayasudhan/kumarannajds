@@ -1,7 +1,6 @@
 
 package com.kuruvatech.kumarannajds;
 
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         Mint.enableLogging(true);
         Mint.setLogging(100, "*:W");
         session = new SessionManager(getApplicationContext());
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_new);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -156,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
 
         View hView =  navView.inflateHeaderView(R.layout.header);
         navHead = (RelativeLayout) hView.findViewById(R.id.profileinfo);
-        name = (TextView) hView.findViewById(R.id.myNameHeader);
-        phno = (TextView) hView.findViewById(R.id.phNoHeader);
-        email = (TextView)hView.findViewById(R.id.eMailHeader);
+//        name = (TextView) hView.findViewById(R.id.myNameHeader);
+//        phno = (TextView) hView.findViewById(R.id.phNoHeader);
+//        email = (TextView)hView.findViewById(R.id.eMailHeader);
 
 //        name.setText(session.getName());
 //        phno.setText(session.getKeyPhone());
@@ -166,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 //        transaction.replace(R.id.frame, new AboutFragment());
         isMainFragmentOpen =  true;
         transaction.commit();
-
+//
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -175,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
 
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.main) {
-                    viewPager.setCurrentItem(0);
+                    viewPager.setCurrentItem(8);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    viewPager.setCurrentItem(8);
+                    viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
@@ -246,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MainFragment(), "Home");
+
         adapter.addFragment(new AboutFragment(), "About Kumaraswamy");
         adapter.addFragment(new CmFragment(), "As a Chief Minister");
         adapter.addFragment(new AachivementsFragment(), "Achievements");
@@ -255,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new ImageFragment(), "Image Gallery");
         adapter.addFragment(new VideoFragment(), "HDK TV");
         adapter.addFragment(new ShareAppFragment(), "Share This App");
+        adapter.addFragment(new MainFragment(), "Home");
         viewPager.setAdapter(adapter);
     }
     boolean doubleBackToExitPressedOnce = false;

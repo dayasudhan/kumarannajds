@@ -14,7 +14,7 @@
 
 
 
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true">
@@ -143,6 +143,6 @@
                 <!--android:layout_alignParentLeft="true"-->
                 <!--android:layout_alignParentRight="true" />-->
             </RelativeLayout>
-        </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
 </RelativeLayout>
