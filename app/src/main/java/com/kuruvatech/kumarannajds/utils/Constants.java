@@ -35,5 +35,9 @@ public class Constants {
     public static final int TITLE_TEXT_COLOR_RED = 00;
     public static final int TITLE_TEXT_COLOR_GREEN = 177;
     public static final int TITLE_TEXT_COLOR_BLUE = 106;
+    public static final String SLIDER_URL1= MAIN_URL + "https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511186379935.jpg";
+    public static final String SLIDER_URL3=MAIN_URL + "https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511186379935.jpg";
+    public static final String SLIDER_URL2=MAIN_URL + "https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511186379935.jpg";
+    public static final String SLIDER_URL4=MAIN_URL + "https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511186379935.jpg";
 
 }

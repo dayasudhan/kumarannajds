@@ -79,7 +79,25 @@ public class SessionManager {
 		pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
 		editor = pref.edit();
 	}
-	
+
+	public List<String> getSlider()
+	{
+		String orders = pref.getString(KEY_SLIDER_LOGO, null);
+		List<String> list = null;
+		if(orders != null) {
+			Gson gson = new Gson();
+			list = (List<String>) gson.fromJson(orders, Object.class);
+		}
+		else
+		{
+			list = new ArrayList<String>();
+			list.add(Constants.SLIDER_URL1);
+			list.add(Constants.SLIDER_URL2);
+			list.add(Constants.SLIDER_URL3);
+			list.add(Constants.SLIDER_URL4);
+		}
+		return list;
+	}
 	/**
 	 * Create login session
 	 * */

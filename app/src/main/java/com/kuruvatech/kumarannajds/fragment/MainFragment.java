@@ -4,7 +4,6 @@ import android.app.Dialog;
 
 import android.content.DialogInterface;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,24 +16,20 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerFragment;
-import com.google.android.youtube.player.YouTubeThumbnailLoader;
-import com.google.android.youtube.player.YouTubeThumbnailView;
-import com.google.gson.Gson;
+import com.kuruvatech.kumarannajds.utils.CirclePageIndicator;
 import com.kuruvatech.kumarannajds.MainActivity;
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.adapter.FeedAdapter;
 import com.kuruvatech.kumarannajds.adapter.MainAdapter;
+import com.kuruvatech.kumarannajds.adapter.ScreenSlidePagerAdapter;
 import com.kuruvatech.kumarannajds.model.FeedItem;
 import com.kuruvatech.kumarannajds.utils.Constants;
+import com.kuruvatech.kumarannajds.utils.MyViewPager;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
+import com.kuruvatech.kumarannajds.utils.ZoomOutPageTransformer;
 
 import cz.msebera.android.httpclient.HttpEntity;
 import cz.msebera.android.httpclient.HttpResponse;
@@ -72,6 +67,9 @@ public class MainFragment extends Fragment{
     boolean isSwipeRefresh;
     private SwipeRefreshLayout swipeRefreshLayout;
     SessionManager session;
+    private MyViewPager pager;
+    int sliderIndex=0,sliderMaxImages = 4;
+    int delayMiliSec = 8000;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -102,6 +100,17 @@ public class MainFragment extends Fragment{
             initAdapter();
         }
         getFeeds();
+
+        pager = (MyViewPager) rootview.findViewById(R.id.pager);
+        ScreenSlidePagerAdapter pagerAdapter =new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),getActivity().getApplicationContext());
+        pager.setPageTransformer(true, new ZoomOutPageTransformer());
+
+        pagerAdapter.addAll(session.getSlider());
+        pager.setAdapter(pagerAdapter);
+        CirclePageIndicator indicator = (CirclePageIndicator) rootview.findViewById(R.id.indicator);
+        indicator.setViewPager(pager);
+
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
