@@ -72,4 +72,5 @@ public class Adapter extends RecyclerView.Adapter {
             this.item = (ImageView) itemView.findViewById(R.id.item_image);
         }
     }
+
 }

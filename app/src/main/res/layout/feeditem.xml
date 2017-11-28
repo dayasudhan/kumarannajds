@@ -6,7 +6,7 @@
     android:paddingRight="20dp"
     android:paddingBottom="20dp"
     android:background="@drawable/card_background_selector"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -45,12 +45,27 @@
         android:layout_below="@+id/feed_description"
         android:layout_width="match_parent"
         android:layout_height="250dp">
-            <com.google.android.youtube.player.YouTubeThumbnailView
-                android:id="@+id/youtubethumbnailview"
+        <com.google.android.youtube.player.YouTubeThumbnailView
+            android:id="@+id/youtube_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"/>
+
+        <RelativeLayout android:id="@+id/relativeLayout_over_youtube_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+
+            android:visibility="visible">
+
+            <ImageView android:id="@+id/btnYoutube_player"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center"/>
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/ic_play"/>
+
+        </RelativeLayout>
             <ImageView
                 android:id="@+id/play_video"
                 android:layout_width="wrap_content"

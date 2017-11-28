@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,7 @@ import com.google.gson.Gson;
 import com.kuruvatech.kumarannajds.MainActivity;
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.adapter.FeedAdapter;
+import com.kuruvatech.kumarannajds.adapter.MainAdapter;
 import com.kuruvatech.kumarannajds.model.FeedItem;
 import com.kuruvatech.kumarannajds.utils.Constants;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
@@ -61,8 +64,10 @@ public class MainFragment extends Fragment{
     Button btnshareApp;
     ArrayList<FeedItem> feedList;
     FeedAdapter adapter;
+    MainAdapter adapter2;
     View rootview;
-    ListView listView;
+    //ListView listView;
+    RecyclerView listView;
     TextView noFeedstv;
     boolean isSwipeRefresh;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -72,7 +77,18 @@ public class MainFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_main, container, false);
-        listView = (ListView) rootview.findViewById(R.id.listView_feedlist);
+        listView = (RecyclerView) rootview.findViewById(R.id.listView_feedlist);
+
+
+       // recyclerView=(RecyclerView)view.findViewById(R.id.video_list);
+        listView.setHasFixedSize(true);
+        //to use RecycleView, you need a layout manager. default is LinearLayoutManager
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        listView.setLayoutManager(linearLayoutManager);
+
+
+
         noFeedstv = (TextView)rootview.findViewById(R.id.textView_no_feeds);
         session = new SessionManager(getActivity().getApplicationContext());
         swipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.swipe_refresh_layout);
@@ -112,9 +128,10 @@ public class MainFragment extends Fragment{
     public void initAdapter()
     {
 
-        adapter = new FeedAdapter(getActivity(),R.layout.feeditem,feedList);
-        adapter.notifyDataSetChanged();
-        listView.setAdapter(adapter);
+     //   adapter = new FeedAdapter(getActivity(),R.layout.feeditem,feedList);
+        adapter2 = new  MainAdapter(getActivity(),feedList);
+        adapter2.notifyDataSetChanged();
+        listView.setAdapter(adapter2);
         if(feedList.size() > 0 ) {
             noFeedstv.setVisibility(View.INVISIBLE);
         }
