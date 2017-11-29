@@ -61,7 +61,7 @@ public class FullScreenViewActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                \
+
                 onBackPressed();
                 return true;
             default:

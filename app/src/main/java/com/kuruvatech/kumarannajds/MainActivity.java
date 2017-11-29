@@ -218,12 +218,12 @@ public class MainActivity extends AppCompatActivity {
                 //    frag = new JanathadarshanaFragment();
                     isMainFragmentOpen =  false;
                 }
-//                else if(itemId == R.id.manifesto)
-//                {
-//                    viewPager.setCurrentItem(5);
-//                 ///   frag = new JdsManifestoFragment();
-//                    isMainFragmentOpen =  false;
-//                }
+                else if(itemId == R.id.manifesto)
+                {
+                    viewPager.setCurrentItem(5);
+                 ///   frag = new JdsManifestoFragment();
+                    isMainFragmentOpen =  false;
+                }
 //                else if(itemId == R.id.videos3)
 //                {
 //                    startActivity(new Intent(getApplicationContext(),YouTubePlayerFragmentActivity.class));
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new CmFragment(), "As a Chief Minister");
         adapter.addFragment(new AachivementsFragment(), "Achievements");
         adapter.addFragment(new JanathadarshanaFragment(), "Janatadarshan");
-       // adapter.addFragment(new PDFRenderFragment(), "JDS Manifesto");
+        adapter.addFragment(new JdsManifestoFragment(), "JDS Manifesto");
         adapter.addFragment(new ImageFragment(), "Image Gallery");
         adapter.addFragment(new VideoFragment(), "HDK TV");
         adapter.addFragment(new ShareAppFragment(), "Share This App");
