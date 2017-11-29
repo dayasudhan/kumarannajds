@@ -35,6 +35,7 @@ import com.kuruvatech.kumarannajds.fragment.ImageFragment;
 import com.kuruvatech.kumarannajds.fragment.JanathadarshanaFragment;
 import com.kuruvatech.kumarannajds.fragment.JdsManifestoFragment;
 import com.kuruvatech.kumarannajds.fragment.MainFragment;
+import com.kuruvatech.kumarannajds.fragment.PDFRenderFragment;
 import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
 import com.kuruvatech.kumarannajds.fragment.VideoFragment;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
@@ -174,22 +175,22 @@ public class MainActivity extends AppCompatActivity {
 
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.main) {
-                    viewPager.setCurrentItem(8);
+                    viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    viewPager.setCurrentItem(0);
+                    viewPager.setCurrentItem(7);
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
                 {
-                    viewPager.setCurrentItem(7);
+                    viewPager.setCurrentItem(6);
 //                    startActivity(new Intent(getApplicationContext(),CustomPlayerControlActivity.class));
                   //  frag = new VideoFragment();
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.images)
                 {
-                    viewPager.setCurrentItem(6);
+                    viewPager.setCurrentItem(5);
                   //  frag = new ImageFragment();
                     isMainFragmentOpen =  false;
                 }
@@ -217,12 +218,12 @@ public class MainActivity extends AppCompatActivity {
                 //    frag = new JanathadarshanaFragment();
                     isMainFragmentOpen =  false;
                 }
-                else if(itemId == R.id.manifesto)
-                {
-                    viewPager.setCurrentItem(5);
-                 ///   frag = new JdsManifestoFragment();
-                    isMainFragmentOpen =  false;
-                }
+//                else if(itemId == R.id.manifesto)
+//                {
+//                    viewPager.setCurrentItem(5);
+//                 ///   frag = new JdsManifestoFragment();
+//                    isMainFragmentOpen =  false;
+//                }
 //                else if(itemId == R.id.videos3)
 //                {
 //                    startActivity(new Intent(getApplicationContext(),YouTubePlayerFragmentActivity.class));
@@ -246,15 +247,16 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
+        adapter.addFragment(new MainFragment(), "Home");
         adapter.addFragment(new AboutFragment(), "About Kumaraswamy");
         adapter.addFragment(new CmFragment(), "As a Chief Minister");
         adapter.addFragment(new AachivementsFragment(), "Achievements");
         adapter.addFragment(new JanathadarshanaFragment(), "Janatadarshan");
-        adapter.addFragment(new JdsManifestoFragment(), "JDS Manifesto");
+       // adapter.addFragment(new PDFRenderFragment(), "JDS Manifesto");
         adapter.addFragment(new ImageFragment(), "Image Gallery");
         adapter.addFragment(new VideoFragment(), "HDK TV");
         adapter.addFragment(new ShareAppFragment(), "Share This App");
-        adapter.addFragment(new MainFragment(), "Home");
+
         viewPager.setAdapter(adapter);
     }
     boolean doubleBackToExitPressedOnce = false;

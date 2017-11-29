@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.kuruvatech.kumarannajds.FullScreenViewActivity;
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.RecyclerItemClickListener;
 import com.kuruvatech.kumarannajds.SingleViewActivity;
@@ -71,8 +72,9 @@ public class ImageFragment extends Fragment {
             recyclerView.addOnItemTouchListener(
                     new RecyclerItemClickListener(getActivity(),0,recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                         @Override public void onItemClick(View view, int position2, String myposition) {
-                            Intent i = new Intent(getActivity(), SingleViewActivity.class);
+                            Intent i = new Intent(getActivity(), FullScreenViewActivity.class);
                             i.putExtra("url", imageList.get(position2));
+                            i.putExtra("imageurls",imageList);
                             startActivity(i);
                         }
 
