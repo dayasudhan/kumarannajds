@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -70,6 +71,7 @@ public class MainFragment extends Fragment{
     private MyViewPager pager;
     int sliderIndex=0,sliderMaxImages = 4;
     int delayMiliSec = 8000;
+	private Handler handler;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,6 +103,7 @@ public class MainFragment extends Fragment{
         }
         getFeeds();
 
+        handler = new Handler();
         pager = (MyViewPager) rootview.findViewById(R.id.pager);
         ScreenSlidePagerAdapter pagerAdapter =new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),getActivity().getApplicationContext());
         pager.setPageTransformer(true, new ZoomOutPageTransformer());
@@ -131,6 +134,7 @@ public class MainFragment extends Fragment{
     @Override
     public void onResume() {
         super.onResume();
+        handler.postDelayed(runnable, delayMiliSec);
     }
 
 
@@ -282,4 +286,23 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                 .setIcon(R.drawable.ic_action_about).show();
 
     }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable);
+    }
+
+	    Runnable runnable = new Runnable() {
+        public void run() {
+            if (sliderMaxImages == sliderIndex) {
+                sliderIndex = 0;
+            } else {
+                sliderIndex++;
+            }
+            pager.setCurrentItem(sliderIndex, true);
+            handler.postDelayed(this, delayMiliSec);
+        }
+    };
 }
