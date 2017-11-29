@@ -45,13 +45,14 @@
         android:layout_below="@+id/feed_description"
         android:layout_width="match_parent"
         android:layout_height="250dp">
+
         <com.google.android.youtube.player.YouTubeThumbnailView
             android:id="@+id/youtube_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:scaleType="centerCrop"
 
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <RelativeLayout android:id="@+id/relativeLayout_over_youtube_thumbnail"
             android:layout_width="match_parent"

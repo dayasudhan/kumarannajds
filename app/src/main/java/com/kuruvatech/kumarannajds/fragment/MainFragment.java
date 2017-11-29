@@ -96,7 +96,7 @@ public class MainFragment extends Fragment{
                 .setActionBarTitle(getString(R.string.titletext));
 
         isSwipeRefresh = false;
-        feedList  =session.getLastNewsFeed();
+      //  feedList  =session.getLastNewsFeed();
         if(feedList !=null)
         {
             initAdapter();
@@ -152,7 +152,7 @@ public class MainFragment extends Fragment{
         {
             noFeedstv.setVisibility(View.VISIBLE);
         }
-        session.setLastNewsFeed(feedList);
+      //  session.setLastNewsFeed(feedList);
     }
     public void getFeeds()
     {

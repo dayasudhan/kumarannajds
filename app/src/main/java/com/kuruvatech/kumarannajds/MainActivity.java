@@ -178,22 +178,22 @@ public class MainActivity extends AppCompatActivity {
                     viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    viewPager.setCurrentItem(7);
+                    viewPager.setCurrentItem(6);
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
                 {
-                    viewPager.setCurrentItem(6);
+                    viewPager.setCurrentItem(5);
 //                    startActivity(new Intent(getApplicationContext(),CustomPlayerControlActivity.class));
                   //  frag = new VideoFragment();
                     isMainFragmentOpen =  false;
                 }
-                else if(itemId == R.id.images)
-                {
-                    viewPager.setCurrentItem(5);
-                  //  frag = new ImageFragment();
-                    isMainFragmentOpen =  false;
-                }
+//                else if(itemId == R.id.images)
+//                {
+//                    viewPager.setCurrentItem(5);
+//                  //  frag = new ImageFragment();
+//                    isMainFragmentOpen =  false;
+//                }
                 else if(itemId == R.id.about_candiate)
                 {
                     viewPager.setCurrentItem(1);
@@ -218,12 +218,12 @@ public class MainActivity extends AppCompatActivity {
                 //    frag = new JanathadarshanaFragment();
                     isMainFragmentOpen =  false;
                 }
-                else if(itemId == R.id.manifesto)
-                {
-                    viewPager.setCurrentItem(5);
-                 ///   frag = new JdsManifestoFragment();
-                    isMainFragmentOpen =  false;
-                }
+//                else if(itemId == R.id.manifesto)
+//                {
+//                    viewPager.setCurrentItem(5);
+//                 ///   frag = new JdsManifestoFragment();
+//                    isMainFragmentOpen =  false;
+//                }
 //                else if(itemId == R.id.videos3)
 //                {
 //                    startActivity(new Intent(getApplicationContext(),YouTubePlayerFragmentActivity.class));
@@ -252,8 +252,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new CmFragment(), "As a Chief Minister");
         adapter.addFragment(new AachivementsFragment(), "Achievements");
         adapter.addFragment(new JanathadarshanaFragment(), "Janatadarshan");
-        adapter.addFragment(new JdsManifestoFragment(), "JDS Manifesto");
-        adapter.addFragment(new ImageFragment(), "Image Gallery");
+     //   adapter.addFragment(new JdsManifestoFragment(), "JDS Manifesto");
+     //   adapter.addFragment(new ImageFragment(), "Image Gallery");
         adapter.addFragment(new VideoFragment(), "HDK TV");
         adapter.addFragment(new ShareAppFragment(), "Share This App");
 

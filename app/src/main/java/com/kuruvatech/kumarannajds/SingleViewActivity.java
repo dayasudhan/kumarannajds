@@ -52,20 +52,20 @@ public class SingleViewActivity extends AppCompatActivity {
 
 
         });
-        setToolBar(getString(R.string.titletext));
+//        setToolBar(getString(R.string.titletext));
 
     }
-    private void setToolBar(String areaClicked) {
-        Toolbar tb = (Toolbar) findViewById(R.id.toolbar2);
-        setSupportActionBar(tb);
-
-        ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.mipmap.ic_back);
-        ab.setDisplayHomeAsUpEnabled(true);
-        ab.setTitle(areaClicked);
-//        tb.setTitleTextColor(Color.rgb(Constants.TITLE_TEXT_COLOR_RED,
-//                Constants.TITLE_TEXT_COLOR_GREEN, Constants.TITLE_TEXT_COLOR_BLUE));
-    }
+//    private void setToolBar(String areaClicked) {
+//        Toolbar tb = (Toolbar) findViewById(R.id.toolbar2);
+//        setSupportActionBar(tb);
+//
+//        ActionBar ab = getSupportActionBar();
+//        ab.setHomeAsUpIndicator(R.mipmap.ic_back);
+//        ab.setDisplayHomeAsUpEnabled(true);
+//        ab.setTitle(areaClicked);
+////        tb.setTitleTextColor(Color.rgb(Constants.TITLE_TEXT_COLOR_RED,
+////                Constants.TITLE_TEXT_COLOR_GREEN, Constants.TITLE_TEXT_COLOR_BLUE));
+//    }
 
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {

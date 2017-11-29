@@ -257,6 +257,10 @@ public class SessionManager {
 			description.add(feedList.get(i).getDescription());
 			if(feedList.get(i).getFeedimages().size()> 0)
 				images.add(feedList.get(i).getFeedimages().get(0));
+			else
+			{
+				images.add(null);
+			}
 			video.add(feedList.get(i).getVideoid());
 		}
 		String jsonHEADING = gson.toJson(heading);
