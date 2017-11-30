@@ -35,7 +35,7 @@
     <color name="background_color">#ffffff</color>
     <color name="search_back_color">#ffffff</color>
     <color name="title_text_color">#050000</color>
-    <color name="secondary_text_color">#a0a0a0</color>
+    <color name="secondary_text_color">#808080</color>
     <color name="third_text_color">#c2c2c2</color>
     <!--<color name="title_text_color">#000000</color>-->
     <!--<color name="secondary_text_color">#4089ed</color>-->
@@ -79,6 +79,27 @@
     <color name="dot_light_screen2">#f2f2f2</color>
     <color name="dot_light_screen3">#f2f2f2</color>
     <color name="dot_light_screen4">#e4b5fc</color>
+
+    <color name="grapefruit1">#ED5565</color>
+    <color name="grapefruit2">#DA4453</color>
+
+    <color name="bittersweet1">#fe6e51</color>
+    <color name="bittersweet2">#e9573f</color>
+
+    <color name="bluejeans1">#5d9cec</color>
+    <color name="bluejeans2">#4a89dc</color>
+
+    <color name="lavender1">#ac92ec</color>
+    <color name="lavender2">#967adc</color>
+
+    <color name="pinkrose1">#ec87c0</color>
+    <color name="pinkrose2">#d770ad</color>
+
+    <color name="sunflower1">#ffce54</color>
+    <color name="sunflower2">#f6bb42</color>
+
+    <color name="mint1">#48cfad</color>
+    <color name="mint2">#37bc9b</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>

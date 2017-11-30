@@ -95,6 +95,8 @@ public class SessionManager {
 			list.add(Constants.SLIDER_URL2);
 			list.add(Constants.SLIDER_URL3);
 			list.add(Constants.SLIDER_URL4);
+			list.add(Constants.SLIDER_URL5);
+			list.add(Constants.SLIDER_URL6);
 		}
 		return list;
 	}

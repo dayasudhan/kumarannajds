@@ -40,5 +40,7 @@ public class Constants {
     public static final String SLIDER_URL3="https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511185615407.jpg";
     public static final String SLIDER_URL2="https://gallery.oneindia.com/ph-big/2013/04/hd-kumaraswamy_136490242813.jpg";
     public static final String SLIDER_URL4="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg";
+    public static final String SLIDER_URL5="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/hqdefault.jpg";
+    public static final String SLIDER_URL6="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/19665643_350745285342945_1332574716575418921_n.jpg";
 
 }

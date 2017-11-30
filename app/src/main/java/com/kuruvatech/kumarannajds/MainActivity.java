@@ -5,12 +5,15 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +34,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -58,7 +63,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
     private RelativeLayout layout;
     private DrawerLayout dLayout;
@@ -70,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private boolean fromUser=true;
-
+    Toolbar tb;
     public boolean isOnline(Context context) {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
@@ -105,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 //
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-//        if (!checkNotificationListenerServiceRunning()) {
+        tabLayout.addOnTabSelectedListener(this);//        if (!checkNotificationListenerServiceRunning()) {
 //            Toast.makeText(getApplicationContext(),"hi update 1",Toast.LENGTH_LONG).show();
 //            startService(new Intent(this, NotificationListener.class));
 //        }
@@ -151,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void setToolBar() {
-        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
+        tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
 
         ActionBar ab = getSupportActionBar();
@@ -230,6 +235,8 @@ public class MainActivity extends AppCompatActivity {
 
                 int itemId = menuItem.getItemId();
                 if (itemId == R.id.main) {
+//                    tb.setBackground(getResources().getDrawable(R.color.jds_toolbar));
+//                    tabLayout.setBackground(getResources().getDrawable(R.color.jds_background));
                     viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
@@ -238,6 +245,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(itemId == R.id.videos)
                 {
+
                     viewPager.setCurrentItem(7);
 //                    startActivity(new Intent(getApplicationContext(),CustomPlayerControlActivity.class));
                   //  frag = new VideoFragment();
@@ -245,6 +253,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(itemId == R.id.images)
                 {
+//                    tb.setBackground(getResources().getDrawable(R.color.congress_toolbar));
+//                    tabLayout.setBackground(getResources().getDrawable(R.color.colorAccent));
                     viewPager.setCurrentItem(6);
                   //  frag = new ImageFragment();
                     isMainFragmentOpen =  false;
@@ -383,6 +393,88 @@ public class MainActivity extends AppCompatActivity {
 
         }
         return false;
+    }
+
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+//        tb.setBackground(getResources().getDrawable(R.color.amber_tool_bar_color));
+//        tabLayout.setBackground(getResources().getDrawable(R.color.Amber));
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = getWindow();
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor(Color.BLUE);
+//        }
+        if(tab.getPosition() == 0)
+        {
+          setTheme(R.color.jds_background,R.color.jds_toolbar,
+                  Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.jds_background))));
+        }
+        else if(tab.getPosition() == 1)
+        {
+          //  getActionBar().setTitle();
+            setTheme(R.color.Amber,R.color.amber_tool_bar_color,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.Amber))));
+        }
+        else if(tab.getPosition() == 2)
+        {
+            setTheme(R.color.grapefruit2,R.color.grapefruit1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.grapefruit2))));
+        }
+        else if(tab.getPosition() == 3)
+        {
+            setTheme(R.color.bluejeans2,R.color.bluejeans1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.bluejeans2))));
+        }
+        else if(tab.getPosition() == 4)
+        {
+            setTheme(R.color.pinkrose2,R.color.pinkrose1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.pinkrose2))));
+        }
+        else if(tab.getPosition() == 5)
+        {
+            setTheme(R.color.lavender2,R.color.lavender1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.lavender2))));
+        }
+        else if(tab.getPosition() == 6)
+        {
+            setTheme(R.color.sunflower2,R.color.sunflower1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.sunflower2))));
+        }
+        else if(tab.getPosition() ==7)
+        {
+            setTheme(R.color.mint2,R.color.mint1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.mint2))));
+        }
+        else if(tab.getPosition() ==8)
+        {
+            setTheme(R.color.bittersweet2,R.color.bittersweet1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.bittersweet2))));
+        }
+        viewPager.setCurrentItem(tab.getPosition());
+    }
+
+    private void setTheme(int themecolor,int toolbacolor,int statusbarcolor)
+    {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+        {
+            tb.setBackground(getResources().getDrawable(toolbacolor));
+            tabLayout.setBackground(getResources().getDrawable(themecolor));
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(statusbarcolor);
+        }
+    }
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
     }
 
 

@@ -15,9 +15,13 @@ import java.util.List;
 public class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
         private List<String> picList = new ArrayList<>();
     Context mContext;
-    public ScreenSlidePagerAdapter(FragmentManager fm , Context context) {
+    float pagewidth= 0.5f;
+    public ScreenSlidePagerAdapter(FragmentManager fm , Context context,int width) {
 
         super(fm);
+        float width2 = width;
+        float pre = 540;
+        pagewidth = pre/width2;
         mContext = context;
     }
 
@@ -31,7 +35,10 @@ public class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return picList.size();
     }
-
+    @Override
+    public float getPageWidth(int position) {
+        return(pagewidth);
+    }
     public void addAll(List<String> picList) {
         this.picList = picList;
     }

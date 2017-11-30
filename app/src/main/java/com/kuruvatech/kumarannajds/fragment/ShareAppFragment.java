@@ -22,8 +22,8 @@ public class ShareAppFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_share_app, container, false);
-        ((MainActivity) getActivity())
-                .setActionBarTitle("Invite Friends");
+//        ((MainActivity) getActivity())
+//                .setActionBarTitle("Invite Friends");
         btnshareApp= (Button) view.findViewById(R.id.invite_button);
         btnshareApp.setOnClickListener(new View.OnClickListener() {
 

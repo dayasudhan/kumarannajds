@@ -105,14 +105,20 @@ public class MainFragment extends Fragment{
 
         handler = new Handler();
         pager = (MyViewPager) rootview.findViewById(R.id.pager);
-        ScreenSlidePagerAdapter pagerAdapter =new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),getActivity().getApplicationContext());
+//        int displayWidth2 =pager.getWidth();
+//        int displayHeight2 = pager.getHeight();
+//        int displayHeight = getActivity().getWindowManager().getDefaultDisplay().getHeight();
+        int displayWidth = getActivity().getWindowManager().getDefaultDisplay().getWidth();
+//        String dimention = " height=>" + String.valueOf(displayHeight) + " width=>" + String.valueOf(displayWidth) +
+//                " height2=>" + String.valueOf(displayHeight2) + "width2=>" + String.valueOf(displayWidth2);
+//        alertMessage(dimention);
+        ScreenSlidePagerAdapter pagerAdapter =new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),getActivity().getApplicationContext(),displayWidth);
         pager.setPageTransformer(true, new ZoomOutPageTransformer());
-
         pagerAdapter.addAll(session.getSlider());
         pager.setAdapter(pagerAdapter);
         CirclePageIndicator indicator = (CirclePageIndicator) rootview.findViewById(R.id.indicator);
         indicator.setViewPager(pager);
-
+//pager.setMinimumHeight();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
