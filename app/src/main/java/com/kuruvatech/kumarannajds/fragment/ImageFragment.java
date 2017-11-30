@@ -122,7 +122,7 @@ public class ImageFragment extends Fragment {
     public void getImages()
     {
         String getFeedsUrl = Constants.GET_IMAGES_URL;
-        getFeedsUrl = getFeedsUrl + getString(R.string.username);
+        getFeedsUrl = getFeedsUrl +  Constants.USERNAME;
         new JSONAsyncTask().execute(getFeedsUrl);
     }
 

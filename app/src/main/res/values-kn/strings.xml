@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
+    <string name="profile_phone">೯೫೬೬೨೨೯೦೭೫?</string>
+    <string name="username">"ಎಚ್ಡಿಕೆ "</string>
+    <string name="contents">ಕುಮಾರಸ್ವಾಮಿ ಅವರು ಕರ್ನಾಟಕದ ರಾಜಕಾರಣಿ ಮತ್ತು ಮಾಜಿ ಪ್ರಧಾನಿ ಎಚ್.ಡಿ. ದೇವೇಗೌಡ ಅವರ ಮಗನಾಗಿದ್ದರೂ , ಅವರು ಆರಂಭದಲ್ಲಿ ರಾಜಕೀಯದಲ್ಲಿ ಆಸಕ್ತಿ ಹೊಂದಿರಲಿಲ್ಲ . ಅವರು ತುಂಬಾ ಚಲನಚಿತ್ರ ತಯಾರಿಕೆ ಮತ್ತು ವಿತರಣೆಯಲ್ಲಿದ್ದರು. ಅವರು ಹಲವಾರು ಯಶಸ್ವೀ ಕನ್ನಡ ಚಲನಚಿತ್ರಗಳನ್ನು ನಿರ್ಮಿಸಿದ್ದಾರೆ. ಅದರಲ್ಲಿ, ಚಂದ್ರ ಚಕೋರಿ ಚಿತ್ರವು ಭಾರಿ ಯಶಸ್ಸನ್ನು ಕಂಡಿತು, ಇದು 365 ದಿನಪತ್ರಿಕೆಗಳಲ್ಲಿ ದಿನಾಚರಣೆ ನಡೆಸಿತು. ಅವರು ಕನ್ನಡ ನಟ ಥೆಸ್ಪಿಯನ್ ರಾಜ್ಕುಮಾರ್ ಅವರ ಅತ್ಯುತ್ತಮ ಅಭಿಮಾನಿಯಾಗಿದ್ದಾರೆ , ಮತ್ತು ಅವರು ಚಲನಚಿತ್ರ ಉದ್ಯಮದಲ್ಲಿ ಅವರನ್ನು ಆಕರ್ಷಿಸಿದ್ದಾರೆ. ಸಂದರ್ಶನವೊಂದರಲ್ಲಿ ಅವರು ತಮ್ಮ ಕಾಲೇಜು ದಿನಗಳಲ್ಲಿ, ರಾಜ್ಕುಮಾರ್ ಚಲನಚಿತ್ರಗಳಲ್ಲಿ, ಅದರಲ್ಲೂ ವಿಶೇಷವಾಗಿ ಇದೇ ಪ್ಯಾಂಟ್ಗಳಲ್ಲಿ ಧರಿಸಿದ್ದ ಉಡುಪುಗಳನ್ನು ಧರಿಸುತ್ತಿದ್ದರು ಎಂದು ಒಪ್ಪಿಕೊಂಡಿದ್ದಾರೆ.</string>
+    <string name="head_lines">ಮುಖ್ಯಾಂಶಗಳು</string>
+    <string name="no_products">" ಈ ವರ್ಗದಲ್ಲಿ ಯಾವುದೇ ಉತ್ಪನ್ನಗಳು ಇಲ್ಲ"</string>
+    <string name="home">ಮುಖಪುಟ</string>
+    <string name="about_person">"ಕುಮಾರಸ್ವಾಮಿ ಬಗ್ಗೆ "</string>
+    <string name="as_chief">ಮುಖ್ಯಮಂತ್ರಿಯಾಗಿ</string>
+    <string name="achivements">ಸಾಧನೆಗಳು</string>
+    <string name="janatadarshan">"ಜನತಾ ದರ್ಶನ್ "</string>
+    <string name="manifesto">"ಜೆಡಿಎಸ್ ಮ್ಯಾನಿಫೆಸ್ಟೋ "</string>
+    <string name="image_gallery">"ಚಿತ್ರ ಗ್ಯಾಲರಿ "</string>
+    <string name="hdk_tv">ಎಚ್ಡಿಕೆ  ಟಿವಿ</string>
+    <string name="share">ಈ ಅಪ್ಲಿಕೇಶನ್ ಹಂಚಿ</string>
+    <string name="btn_show_more">"ಇನ್ನು ಹೆಚ್ಚು ತೋರಿಸು... "</string>
+    <string name="news_content_empty">"ಸುದ್ದಿ ವಿಷಯ ಖಾಲಿಯಾಗಿದೆ "</string>
+    <string name="tell_friend">"ಗೆಳೆಯನಿಗೆ ಹೇಳು "</string>
+    <string name="welcome_android_bite">"AndroidBite ಗೆ ಸುಸ್ವಾಗತ!!! "</string>
+    <string name="invite_head">"ಸ್ನೇಹಿತರನ್ನು ಆಹ್ವಾನಿಸಿ "</string>
+</resources>

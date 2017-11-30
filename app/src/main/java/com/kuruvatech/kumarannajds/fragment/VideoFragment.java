@@ -97,7 +97,7 @@ public class VideoFragment extends Fragment {
     public void getVideos()
     {
         String getFeedsUrl = Constants.GET_VIDEOS_URL;
-        getFeedsUrl = getFeedsUrl + getString(R.string.username);
+        getFeedsUrl = getFeedsUrl +  Constants.USERNAME;
         new JSONAsyncTask().execute(getFeedsUrl);
     }
 

@@ -157,7 +157,7 @@ public class MainFragment extends Fragment{
     public void getFeeds()
     {
         String getFeedsUrl = Constants.GET_FEEDS_URL;
-        getFeedsUrl = getFeedsUrl + getString(R.string.username);
+        getFeedsUrl = getFeedsUrl + Constants.USERNAME;
         new JSONAsyncTask().execute(getFeedsUrl);
     }
 

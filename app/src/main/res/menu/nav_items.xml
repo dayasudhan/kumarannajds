@@ -7,33 +7,33 @@
               <!--android:icon="@drawable/ic_action_fab" />-->
 
         <item android:id="@+id/main"
-            android:title="Home"
+            android:title="@string/home"
             android:icon="@mipmap/ic_nav_home_congress" />
         <item android:id="@+id/about_candiate"
-            android:title="About Kumaraswamy"
+            android:title="@string/about_person"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/as_a_position"
-            android:title="As a Chief Minister"
+            android:title="@string/as_chief"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/achievements"
-            android:title="Achievements"
+            android:title="@string/achivements"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/janatadarshan"
-            android:title="Janatadarshan"
+            android:title="@string/janatadarshan"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/manifesto"
-            android:title="JDS Manifesto"
+            android:title="@string/manifesto"
             android:icon="@mipmap/ic_nav_video_congress" />
         <item android:id="@+id/images"
-            android:title="Image Gallery"
+            android:title="@string/image_gallery"
             android:icon="@mipmap/ic_nav_image_congress" />
         <item android:id="@+id/videos"
-            android:title="HDK TV"
+            android:title="@string/hdk_tv"
             android:icon="@mipmap/ic_nav_video_congress" />
 
 
         <item android:id="@+id/invite"
-            android:title="Share This App"
+            android:title="@string/share"
             android:icon="@mipmap/ic_nav_share_congress" />
 
         <!--<item android:id="@+id/About_Candidate"-->

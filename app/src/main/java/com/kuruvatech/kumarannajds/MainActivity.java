@@ -1,6 +1,12 @@
 
 package com.kuruvatech.kumarannajds;
 
+import android.app.ProgressDialog;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -22,9 +28,14 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +55,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -51,12 +63,13 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout layout;
     private DrawerLayout dLayout;
     SessionManager session;
-    RelativeLayout navHead;
+    LinearLayout navHead;
     TextView name,email,phno;
     private boolean isMainFragmentOpen;
     private boolean isdrawerbackpressed;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private boolean fromUser=true;
 
     public boolean isOnline(Context context) {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -76,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
         Mint.enableLogging(true);
         Mint.setLogging(100, "*:W");
         session = new SessionManager(getApplicationContext());
+        createProgressBar();
         setContentView(R.layout.activity_main_new);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -146,27 +160,68 @@ public class MainActivity extends AppCompatActivity {
             ab.setDisplayHomeAsUpEnabled(true);
         }
     }
+
+    Switch switchLanguage;
+
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
+
+    public void setLocale(String lang) { //call this in onCreate()
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+
+    }
+
+    private ProgressDialog mProgressDialog;
+
+    public void createProgressBar() {
+
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Signing........");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setCancelable(false);
+    }
+
     private void setNavigationDrawer() {
         dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navView = (NavigationView) findViewById(R.id.navigation);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         View hView =  navView.inflateHeaderView(R.layout.header);
-        navHead = (RelativeLayout) hView.findViewById(R.id.profileinfo);
+        navHead = (LinearLayout) hView.findViewById(R.id.profileinfo);
 //        name = (TextView) hView.findViewById(R.id.myNameHeader);
 //        phno = (TextView) hView.findViewById(R.id.phNoHeader);
 //        email = (TextView)hView.findViewById(R.id.eMailHeader);
-
+          switchLanguage = (Switch) hView.findViewById(R.id.language);
 //        name.setText(session.getName());
 //        phno.setText(session.getKeyPhone());
 //        email.setText(session.getEmail());
 //        transaction.replace(R.id.frame, new AboutFragment());
         isMainFragmentOpen =  true;
         transaction.commit();
-//
+        fromUser=false;
+        switchLanguage.setChecked(!isEnglish);
+        switchLanguage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+
+                    ((App) getApplication()).setLocale(new Locale("kn"));
+                    isEnglish=false;
+                } else {
+                    isEnglish=true;
+                    ((App) getApplication()).setLocale(new Locale("en"));
+
+                }
+                refreshUI();
+            }
+        });
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -178,22 +233,22 @@ public class MainActivity extends AppCompatActivity {
                     viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    viewPager.setCurrentItem(6);
+                    viewPager.setCurrentItem(8);
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
                 {
-                    viewPager.setCurrentItem(5);
+                    viewPager.setCurrentItem(7);
 //                    startActivity(new Intent(getApplicationContext(),CustomPlayerControlActivity.class));
                   //  frag = new VideoFragment();
                     isMainFragmentOpen =  false;
                 }
-//                else if(itemId == R.id.images)
-//                {
-//                    viewPager.setCurrentItem(5);
-//                  //  frag = new ImageFragment();
-//                    isMainFragmentOpen =  false;
-//                }
+                else if(itemId == R.id.images)
+                {
+                    viewPager.setCurrentItem(6);
+                  //  frag = new ImageFragment();
+                    isMainFragmentOpen =  false;
+                }
                 else if(itemId == R.id.about_candiate)
                 {
                     viewPager.setCurrentItem(1);
@@ -218,12 +273,12 @@ public class MainActivity extends AppCompatActivity {
                 //    frag = new JanathadarshanaFragment();
                     isMainFragmentOpen =  false;
                 }
-//                else if(itemId == R.id.manifesto)
-//                {
-//                    viewPager.setCurrentItem(5);
-//                 ///   frag = new JdsManifestoFragment();
-//                    isMainFragmentOpen =  false;
-//                }
+                else if(itemId == R.id.manifesto)
+                {
+                    viewPager.setCurrentItem(5);
+                 ///   frag = new JdsManifestoFragment();
+                    isMainFragmentOpen =  false;
+                }
 //                else if(itemId == R.id.videos3)
 //                {
 //                    startActivity(new Intent(getApplicationContext(),YouTubePlayerFragmentActivity.class));
@@ -244,19 +299,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private static boolean isEnglish = true;
+
+    private void refreshUI() {
+        mProgressDialog.show();
+        recreate();
+        mProgressDialog.hide();
+    }
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        adapter.addFragment(new MainFragment(), "Home");
-        adapter.addFragment(new AboutFragment(), "About Kumaraswamy");
-        adapter.addFragment(new CmFragment(), "As a Chief Minister");
-        adapter.addFragment(new AachivementsFragment(), "Achievements");
-        adapter.addFragment(new JanathadarshanaFragment(), "Janatadarshan");
-     //   adapter.addFragment(new JdsManifestoFragment(), "JDS Manifesto");
-     //   adapter.addFragment(new ImageFragment(), "Image Gallery");
-        adapter.addFragment(new VideoFragment(), "HDK TV");
-        adapter.addFragment(new ShareAppFragment(), "Share This App");
-
+        adapter.addFragment(new MainFragment(), getString(R.string.home));
+        adapter.addFragment(new AboutFragment(), getString(R.string.about_person));
+        adapter.addFragment(new CmFragment(), getString(R.string.as_chief));
+        adapter.addFragment(new AachivementsFragment(), getString(R.string.achivements));
+        adapter.addFragment(new JanathadarshanaFragment(), getString(R.string.janatadarshan));
+        adapter.addFragment(new JdsManifestoFragment(), getString(R.string.manifesto));
+        adapter.addFragment(new ImageFragment(), getString(R.string.image_gallery));
+        adapter.addFragment(new VideoFragment(), getString(R.string.hdk_tv));
+        adapter.addFragment(new ShareAppFragment(), getString(R.string.share));
         viewPager.setAdapter(adapter);
     }
     boolean doubleBackToExitPressedOnce = false;
