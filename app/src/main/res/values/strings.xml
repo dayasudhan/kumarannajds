@@ -59,4 +59,5 @@
     <string name="tell_friend">tell a friend</string>
     <string name="welcome_android_bite">Welcome to AndroidBite !!!</string>
     <string name="invite_head">Invite Friends</string>
+    <string name="settings_tab">Settings</string>
 </resources>

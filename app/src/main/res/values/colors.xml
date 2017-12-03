@@ -101,6 +101,23 @@
     <color name="mint1">#48cfad</color>
     <color name="mint2">#37bc9b</color>
 
+    <color name="RoyalPurple1">#A523CF</color>
+    <color name="RoyalPurple2">#6A20A2</color>
+
+    <color name="PrussianBlue">#01406C</color>
+    <color name="Cobalt">#035B98</color>
+    <color name="NavyBlue">#0174C2</color>
+
+    <color name="Saddle">#554742</color>
+    <color name="Squirrel">#8F7B69</color>
+
+    <color name="Mahogany">#B0323A</color>
+    <color name="BrickRed">#CE3039</color>
+    <color name="Flamingo">#ED554D</color>
+
+    <color name="LuckyPoint">#23305D</color>
+
+
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>
         <item>@color/dot_light_screen2</item>

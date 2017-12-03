@@ -1,7 +1,9 @@
 
 package com.kuruvatech.kumarannajds;
 
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -54,10 +56,12 @@ import com.kuruvatech.kumarannajds.fragment.MainFragment;
 import com.kuruvatech.kumarannajds.fragment.PDFRenderFragment;
 import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
 import com.kuruvatech.kumarannajds.fragment.VideoFragment;
+import com.kuruvatech.kumarannajds.fragment.Settingfragment;
+import com.kuruvatech.kumarannajds.utils.Constants;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
 import com.splunk.mint.Mint;
 import com.google.firebase.messaging.FirebaseMessaging;
-
+import com.google.firebase.iid.FirebaseInstanceId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         Mint.enableLogging(true);
         Mint.setLogging(100, "*:W");
         session = new SessionManager(getApplicationContext());
-        createProgressBar();
+
         setContentView(R.layout.activity_main_new);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -104,30 +108,32 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
         setNavigationDrawer();
         setToolBar();
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.USERNAME);
+        String token = FirebaseInstanceId.getInstance().getToken();
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 //
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.addOnTabSelectedListener(this);//        if (!checkNotificationListenerServiceRunning()) {
-//            Toast.makeText(getApplicationContext(),"hi update 1",Toast.LENGTH_LONG).show();
-//            startService(new Intent(this, NotificationListener.class));
-//        }
-//        else
-//        {
-//            Toast.makeText(getApplicationContext(),"hi update 2",Toast.LENGTH_LONG).show();
-//        }
-//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//        notificationManager.cancelAll();
-//        String notification=getIntent().getStringExtra("notificationFragment");
-//        if (notification!=null &&notification.equals("fcm")) {
-//            try {
+        tabLayout.addOnTabSelectedListener(this);
+         if (!checkNotificationListenerServiceRunning()) {
+            Toast.makeText(getApplicationContext(),"hi update 1",Toast.LENGTH_LONG).show();
+            startService(new Intent(this, NotificationListener.class));
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"hi update 2",Toast.LENGTH_LONG).show();
+        }
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.cancelAll();
+        String notification=getIntent().getStringExtra("notificationFragment");
+        if (notification!=null &&notification.equals("fcm")) {
+            try {
 //                MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.frame);
 //                fragment.getFeeds();
-//            } catch (ClassCastException e){
-//            }
-//        }
+            } catch (ClassCastException e){
+            }
+        }
         if (!isOnline(MainActivity.this))
         {
             try {
@@ -172,25 +178,19 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         getSupportActionBar().setTitle(title);
     }
 
-    public void setLocale(String lang) { //call this in onCreate()
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-
-    }
+//    public void setLocale(String lang) { //call this in onCreate()
+//        Locale myLocale = new Locale(lang);
+//        Resources res = getResources();
+//        DisplayMetrics dm = res.getDisplayMetrics();
+//        Configuration conf = res.getConfiguration();
+//        conf.locale = myLocale;
+//        res.updateConfiguration(conf, dm);
+//
+//    }
 
     private ProgressDialog mProgressDialog;
 
-    public void createProgressBar() {
 
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Signing........");
-        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        mProgressDialog.setCancelable(false);
-    }
 
     private void setNavigationDrawer() {
         dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -202,31 +202,31 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 //        name = (TextView) hView.findViewById(R.id.myNameHeader);
 //        phno = (TextView) hView.findViewById(R.id.phNoHeader);
 //        email = (TextView)hView.findViewById(R.id.eMailHeader);
-          switchLanguage = (Switch) hView.findViewById(R.id.language);
-//        name.setText(session.getName());
+     //     switchLanguage = (Switch) hView.findViewById(R.id.language);
+//   //     name.setText(session.getName());
 //        phno.setText(session.getKeyPhone());
 //        email.setText(session.getEmail());
 //        transaction.replace(R.id.frame, new AboutFragment());
         isMainFragmentOpen =  true;
         transaction.commit();
         fromUser=false;
-        switchLanguage.setChecked(!isEnglish);
-        switchLanguage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (isChecked) {
-
-                    ((App) getApplication()).setLocale(new Locale("kn"));
-                    isEnglish=false;
-                } else {
-                    isEnglish=true;
-                    ((App) getApplication()).setLocale(new Locale("en"));
-
-                }
-                refreshUI();
-            }
-        });
+//        switchLanguage.setChecked(!isEnglish);
+//        switchLanguage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                if (isChecked) {
+//
+//                    ((App) getApplication()).setLocale(new Locale("kn"));
+//                    isEnglish=false;
+//                } else {
+//                    isEnglish=true;
+//                    ((App) getApplication()).setLocale(new Locale("en"));
+//
+//                }
+//                refreshUI();
+//            }
+//        });
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -289,6 +289,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                  ///   frag = new JdsManifestoFragment();
                     isMainFragmentOpen =  false;
                 }
+                else if(itemId == R.id.settings2)
+                {
+                    viewPager.setCurrentItem(9);
+                    ///   frag = new JdsManifestoFragment();
+                    isMainFragmentOpen =  false;
+                }
 //                else if(itemId == R.id.videos3)
 //                {
 //                    startActivity(new Intent(getApplicationContext(),YouTubePlayerFragmentActivity.class));
@@ -329,6 +335,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         adapter.addFragment(new ImageFragment(), getString(R.string.image_gallery));
         adapter.addFragment(new VideoFragment(), getString(R.string.hdk_tv));
         adapter.addFragment(new ShareAppFragment(), getString(R.string.share));
+        adapter.addFragment(new Settingfragment(), getString(R.string.settings_tab));
         viewPager.setAdapter(adapter);
     }
     boolean doubleBackToExitPressedOnce = false;
@@ -386,7 +393,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     public boolean checkNotificationListenerServiceRunning() {
         ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if ("com.kuruvatech.election.NotificationListener"
+            if ("com.kuruvatech.kumarannajds.NotificationListener"
                     .equals(service.service.getClassName())) {
                 return true;
             }

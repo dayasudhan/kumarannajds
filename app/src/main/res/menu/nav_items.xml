@@ -33,7 +33,10 @@
 
 
         <item android:id="@+id/invite"
-            android:title="@string/share"
+        android:title="@string/share"
+        android:icon="@mipmap/ic_nav_share_congress" />
+        <item android:id="@+id/settings2"
+            android:title="@string/settings_tab"
             android:icon="@mipmap/ic_nav_share_congress" />
 
         <!--<item android:id="@+id/About_Candidate"-->

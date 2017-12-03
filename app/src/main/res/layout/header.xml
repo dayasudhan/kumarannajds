@@ -11,46 +11,46 @@
 
     <ImageButton
         android:id="@+id/user_profile_photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
         android:background="@drawable/profile_heading" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-        >
-        <Switch
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+         <!--android:layout_height="wrap_content"-->
+        <!--&gt;-->
+        <!--<Switch-->
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/language"
-            android:text="English/Kannada"/>
-        <!--<TextView-->
-            <!--android:id="@+id/myNameHeader"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
-             <!--android:text="@string/app_name"-->
-            <!--android:textAppearance="?android:attr/textAppearanceSmall" />-->
+            <!--android:id="@+id/language"-->
+            <!--android:text="English/Kannada"/>-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/myNameHeader"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+             <!--&lt;!&ndash;android:text="@string/app_name"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceSmall" />&ndash;&gt;-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/eMailHeader"-->
-            <!--android:layout_below="@id/myNameHeader"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/profile_email"-->
-            <!--android:textAppearance="?android:attr/textAppearanceSmall" />-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/eMailHeader"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_below="@id/myNameHeader"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="@string/profile_email"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceSmall" />&ndash;&gt;-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/phNoHeader"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@id/eMailHeader"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:text="@string/profile_phone" />-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/phNoHeader"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_below="@id/eMailHeader"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="@string/profile_phone" />&ndash;&gt;-->
 
 
-    </RelativeLayout>
+    <!--</RelativeLayout>-->
 
 
 </LinearLayout>
