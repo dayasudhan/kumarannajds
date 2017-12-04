@@ -163,13 +163,7 @@ public class AboutFragment extends Fragment{
 
     private void initContent() {
         feedItem =  new FeedItem();
-        feedItem.setDescription("Haradanahalli Devegowda Kumaraswamy is a young and impeccable polititician of Karnataka.He is one of the sons of former Prime Minister Sri. H.D. Devegowda .He is popularly known as Kumaranna among his friends and followers he is one of the great politician who have huge Followers because of his dynamic approach.\n" +
-                "\n" +
-                "Kumaraswamy is the 18th Chief minister of Karnataka .When initially Kumaraswamy took over as the Chief Minister everyone thought he is a chip of old block doing nothing but paying lip sympathy to the rural poor and attacking anything urban. But he proved everyone wrong, his priorities were clear from day 1 development of the state was top of his agenda no rural-urban divide. he put Bangalore back on the rails. he made it clear that the industries are given better facility so that Bangalore should be investor friendly. He also cleared all infrastructure projects\n" +
-                "\n" +
-                "He started touring the nooks and corners of the state interacted with the people took note of their problem and instructed officials to help them with a warning that he would visit again and seek action taken report .In Bangalore he started weekly Janatha Darshana which was biggest popular programe\n" +
-                "\n" +
-                "Kumaraswamy has effectively established his credentials through people friendly programes benefiting both rural and urban masses, he also unwearyingly supported the industries and was also committed towards improving infrastructure and facilities in Karnataka he gave top priority to up gradation of the infrastructure in Bangalore as well as those areas in the outskirts of Bangalore by taking up several projects he also extended his cooperation to IT & BT industries which were responsible for Bangalore to carve a name on the world map. Kumaraswamy was popular among people because of pro-people programes like village stay and onetime loan waiver to farmers ,arrack and lottery ban bicycle for girl students , Janatha darshana.");
+        feedItem.setDescription(getString(R.string.about_person_description));
     }
 
 

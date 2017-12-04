@@ -1,11 +1,14 @@
 package com.kuruvatech.kumarannajds.adapter;
 
 import android.app.Activity;
+import android.graphics.Point;
 import android.support.v7.widget.RecyclerView;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.utils.ImageLoader;
@@ -31,8 +34,33 @@ public class Adapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_view_item, viewGroup, false);
 
+        View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_view_item, viewGroup, false);
+  //      LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+  //      LinearLayout mainLayout = (LinearLayout) itemView.findViewById((R.layout.recycler_view_item));
+   //     ViewGroup.LayoutParams params = mainLayout.getLayoutParams();
+//        params.height = 200;
+
+
+        Display screenDisplay = con.getWindowManager().getDefaultDisplay();
+        int LayoutHeight = screenDisplay.getHeight();
+        int Layoutwidth = screenDisplay.getWidth();
+        float ht = LayoutHeight;
+        float wd = Layoutwidth;
+        float ratio = 1;
+        float height = wd /3;
+        if(ht > wd)
+        {
+            ratio = ht/wd;
+            height = height * ratio;
+
+        }
+        int height2 = (int)height;
+        LinearLayout.LayoutParams listLayoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, height2);
+        itemView.setLayoutParams(listLayoutParams);
         return new ItemViewHolder(itemView);
     }
 
@@ -72,5 +100,30 @@ public class Adapter extends RecyclerView.Adapter {
             this.item = (ImageView) itemView.findViewById(R.id.item_image);
         }
     }
+
+//    private class ScreenResolution {
+//        int width;
+//        int height;
+//        public ScreenResolution(int width, int height) {
+//            this.width = width;
+//            this.height = height;
+//        }
+//    }
+//
+//    ScreenResolution deviceDimensions() {
+//        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+//        // getsize() is available from API 13
+//        if (currentapiVersion >= android.os.Build.VERSION_CODES.HONEYCOMB_MR2) {
+//            Display display = con.getWindowManager().getDefaultDisplay();
+//            Point size = new Point();
+//            display.getSize(size);
+//            return new ScreenResolution(size.x, size.y);
+//        }
+//        else {
+//            Display display = con.getWindowManager().getDefaultDisplay();
+//            // getWidth() & getHeight() are deprecated
+//            return new ScreenResolution(display.getWidth(), display.getHeight());
+//        }
+//    }
 
 }

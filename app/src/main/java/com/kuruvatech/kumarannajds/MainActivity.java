@@ -4,13 +4,8 @@ package com.kuruvatech.kumarannajds;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
@@ -33,14 +28,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -53,7 +46,6 @@ import com.kuruvatech.kumarannajds.fragment.ImageFragment;
 import com.kuruvatech.kumarannajds.fragment.JanathadarshanaFragment;
 import com.kuruvatech.kumarannajds.fragment.JdsManifestoFragment;
 import com.kuruvatech.kumarannajds.fragment.MainFragment;
-import com.kuruvatech.kumarannajds.fragment.PDFRenderFragment;
 import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
 import com.kuruvatech.kumarannajds.fragment.VideoFragment;
 import com.kuruvatech.kumarannajds.fragment.Settingfragment;
@@ -64,7 +56,6 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.iid.FirebaseInstanceId;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
@@ -291,9 +282,14 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 }
                 else if(itemId == R.id.settings2)
                 {
-                    viewPager.setCurrentItem(9);
-                    ///   frag = new JdsManifestoFragment();
-                    isMainFragmentOpen =  false;
+                  viewPager.setCurrentItem(9);
+                   //    frag = (Fragment) new GeneralPreferenceFragment();
+                   isMainFragmentOpen =  false;
+                    //startActivity(new Intent(MainActivity.this, SettingsPrefActivity.class));
+                 //  Intent a = new Intent(getApplicationContext(), SettingsActivity.class);
+                //    //a.putExtra("url", "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg");
+                 //   startActivity(a);
+
                 }
 //                else if(itemId == R.id.videos3)
 //                {
@@ -375,6 +371,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
             }, 2000);
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -385,6 +386,11 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
             case android.R.id.home: {
                 dLayout.openDrawer(GravityCompat.START);
+                return true;
+            }
+            case  R.id.action_settings: {
+                // launch settings activity
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 return true;
             }
         }

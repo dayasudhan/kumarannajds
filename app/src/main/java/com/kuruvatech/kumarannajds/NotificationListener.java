@@ -1,6 +1,7 @@
 package com.kuruvatech.kumarannajds;
 
 import android.app.ActivityManager;
+import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -11,6 +12,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.IBinder;
 import android.provider.Settings;
 import android.support.v7.app.NotificationCompat;
@@ -28,13 +30,27 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import com.kuruvatech.kumarannajds.fragment.ImageFragment;
 import com.kuruvatech.kumarannajds.utils.Constants;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import cz.msebera.android.httpclient.HttpEntity;
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.methods.HttpGet;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.protocol.HTTP;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 //import khaanavali.customer.utils.Constants;
 //import khaanavali.customer.utils.SessionManager;
@@ -81,8 +97,8 @@ public class NotificationListener extends Service {
 
                         Toast.makeText(getApplicationContext(),imageuri,Toast.LENGTH_LONG).show();
                     }
-                    bitmap = getBitmapfromUrl("https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg");
-                    sendNotification(message, heading,bitmap);
+                     getBitmapfromUrl("https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg");
+                   // sendNotification(message, heading,bitmap);
                     // heading = remoteMessage.getData().get("image");
                    //  imageUri = remoteMessage.getData().get("image");
 
@@ -173,21 +189,62 @@ public class NotificationListener extends Service {
         notificationManager.notify((int) when, builder.build());
     }
 
-    public Bitmap getBitmapfromUrl(String imageUrl) {
-        try {
-            URL url = new URL(imageUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap bitmap = BitmapFactory.decodeStream(input);
-            return bitmap;
+    public void getBitmapfromUrl(String imageUrl) {
+//        try {
+//            URL url = new URL(imageUrl);
+//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//            connection.setDoInput(true);
+//            connection.connect();
+//            InputStream input = connection.getInputStream();
+//            Bitmap bitmap = BitmapFactory.decodeStream(input);
+//            return bitmap;
+//
+//        } catch (Exception e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//            return null;
+//
+//        }
+        new JSONAsyncTask().execute(imageUrl);
+    }
+    public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
+        Dialog dialog;
+        public JSONAsyncTask() {
 
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            return null;
+        }
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+//            if(isSwipeRefresh == false) {
+//                swipeRefreshLayout.setRefreshing(true);
+//            }
+
+        }
+
+        @Override
+        protected Boolean doInBackground(String... urls) {
+            try {
+
+                URL url = new URL(urls[0]);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                bitmap = BitmapFactory.decodeStream(input);
+                return true;
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return null;
+
+            }
+
+        }
+        protected void onPostExecute(Boolean result) {
+
+            sendNotification("message", "heading",bitmap);
         }
     }
     @Override

@@ -15,6 +15,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.kuruvatech.kumarannajds.App;
+import com.kuruvatech.kumarannajds.MainActivity;
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.utils.Constants;
 
@@ -42,6 +43,7 @@ public class Settingfragment extends Fragment {
 
                 if (isChecked) {
 
+
                     ((App) getActivity().getApplication()).setLocale(new Locale("kn"));
                     isEnglish=false;
                 } else {
@@ -52,6 +54,8 @@ public class Settingfragment extends Fragment {
                 refreshUI();
             }
         });
+        ((MainActivity) getActivity())
+                .setActionBarTitle(getString(R.string.titletext));
         return view;
     }
     private ProgressDialog mProgressDialog;

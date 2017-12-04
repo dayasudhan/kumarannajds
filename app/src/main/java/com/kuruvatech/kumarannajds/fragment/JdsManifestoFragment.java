@@ -74,6 +74,7 @@ public class JdsManifestoFragment extends Fragment{
                         @Override public void onItemClick(View view, int position2, String myposition) {
                             Intent i = new Intent(getActivity(), FullScreenViewActivity.class);
                             i.putExtra("url", imageList.get(position2));
+                            i.putExtra("position", position2);
                             i.putExtra("imageurls",imageList);
                             startActivity(i);
                         }
