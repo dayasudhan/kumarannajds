@@ -11,19 +11,19 @@
             android:icon="@mipmap/ic_nav_home_congress" />
         <item android:id="@+id/about_candiate"
             android:title="@string/about_person"
-            android:icon="@mipmap/ic_nav_video_congress" />
+            android:icon="@mipmap/ic_about" />
         <item android:id="@+id/as_a_position"
             android:title="@string/as_chief"
-            android:icon="@mipmap/ic_nav_video_congress" />
+            android:icon="@mipmap/ic_position" />
         <item android:id="@+id/achievements"
             android:title="@string/achivements"
-            android:icon="@mipmap/ic_nav_video_congress" />
+            android:icon="@mipmap/ic_achivements" />
         <item android:id="@+id/janatadarshan"
             android:title="@string/janatadarshan"
-            android:icon="@mipmap/ic_nav_video_congress" />
+            android:icon="@mipmap/ic_janathadarshana" />
         <item android:id="@+id/manifesto"
             android:title="@string/manifesto"
-            android:icon="@mipmap/ic_nav_video_congress" />
+            android:icon="@mipmap/ic_manifesto" />
         <item android:id="@+id/images"
             android:title="@string/image_gallery"
             android:icon="@mipmap/ic_nav_image_congress" />
@@ -37,7 +37,7 @@
         android:icon="@mipmap/ic_nav_share_congress" />
         <item android:id="@+id/settings2"
             android:title="@string/settings_tab"
-            android:icon="@mipmap/ic_nav_share_congress" />
+            android:icon="@mipmap/ic_settings" />
 
         <!--<item android:id="@+id/About_Candidate"-->
             <!--android:title="About"-->

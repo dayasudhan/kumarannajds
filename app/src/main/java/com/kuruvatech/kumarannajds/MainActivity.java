@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navView = (NavigationView) findViewById(R.id.navigation);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
+        navView.setItemIconTintList(null);
         View hView =  navView.inflateHeaderView(R.layout.header);
         navHead = (LinearLayout) hView.findViewById(R.id.profileinfo);
 //        name = (TextView) hView.findViewById(R.id.myNameHeader);
