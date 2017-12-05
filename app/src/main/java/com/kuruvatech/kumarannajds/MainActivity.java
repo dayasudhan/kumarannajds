@@ -47,6 +47,7 @@ import com.kuruvatech.kumarannajds.fragment.JanathadarshanaFragment;
 import com.kuruvatech.kumarannajds.fragment.JdsManifestoFragment;
 import com.kuruvatech.kumarannajds.fragment.MainFragment;
 import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
+import com.kuruvatech.kumarannajds.fragment.SuggetionFragment;
 import com.kuruvatech.kumarannajds.fragment.VideoFragment;
 import com.kuruvatech.kumarannajds.fragment.Settingfragment;
 import com.kuruvatech.kumarannajds.utils.Constants;
@@ -231,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                     viewPager.setCurrentItem(0);
                     isMainFragmentOpen =  true;
                 }else if (itemId == R.id.invite) {
-                    viewPager.setCurrentItem(8);
+                    viewPager.setCurrentItem(9);
                     isMainFragmentOpen =  false;
                 }
                 else if(itemId == R.id.videos)
@@ -282,7 +283,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 }
                 else if(itemId == R.id.settings2)
                 {
-                  viewPager.setCurrentItem(9);
+                  viewPager.setCurrentItem(10);
                    //    frag = (Fragment) new GeneralPreferenceFragment();
                    isMainFragmentOpen =  false;
                     //startActivity(new Intent(MainActivity.this, SettingsPrefActivity.class));
@@ -290,6 +291,12 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 //    //a.putExtra("url", "https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg");
                  //   startActivity(a);
 
+                }
+                else if(itemId == R.id.suggestion_box)
+                {
+                    viewPager.setCurrentItem(8);
+                    ///   frag = new JdsManifestoFragment();
+                    isMainFragmentOpen =  false;
                 }
 //                else if(itemId == R.id.videos3)
 //                {
@@ -330,6 +337,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         adapter.addFragment(new JdsManifestoFragment(), getString(R.string.manifesto));
         adapter.addFragment(new ImageFragment(), getString(R.string.image_gallery));
         adapter.addFragment(new VideoFragment(), getString(R.string.hdk_tv));
+        adapter.addFragment(new SuggetionFragment(), getString(R.string.suggestion_box_tab));
         adapter.addFragment(new ShareAppFragment(), getString(R.string.share));
         adapter.addFragment(new Settingfragment(), getString(R.string.settings_tab));
         viewPager.setAdapter(adapter);
@@ -410,13 +418,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
-//        tb.setBackground(getResources().getDrawable(R.color.amber_tool_bar_color));
-//        tabLayout.setBackground(getResources().getDrawable(R.color.Amber));
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            Window window = getWindow();
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.setStatusBarColor(Color.BLUE);
-//        }
+
         if(tab.getPosition() == 0)
         {
           setTheme(R.color.jds_background,R.color.jds_toolbar,
@@ -462,6 +464,16 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         {
             setTheme(R.color.bittersweet2,R.color.bittersweet1,
                     Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.bittersweet2))));
+        }
+        else if(tab.getPosition() ==9)
+        {
+            setTheme(R.color.Cobalt,R.color.NavyBlue,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.Cobalt))));
+        }
+        else if(tab.getPosition() ==10)
+        {
+            setTheme(R.color.sunflower2,R.color.sunflower1,
+                    Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getApplicationContext(), R.color.sunflower2))));
         }
         viewPager.setCurrentItem(tab.getPosition());
     }

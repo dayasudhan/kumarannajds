@@ -77,6 +77,17 @@
 
     <string name="switch_language">Auto upload</string>
 
+
+
+    <string name="hint_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_sign_up">Send letter</string>
+    <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="err_msg_password">Enter the password</string>
+    <string name="hint_phone">Valid Phone Number</string>
+
     <string name="default_gallery_storage">My Videos</string>
     <string name="title_auto_upload">Auto upload</string>
     <string name="summary_upload_over_wifi">Upload the videos when wifi is available</string>
@@ -89,6 +100,7 @@
     <string name="app_version">3.5</string>
     <string name="summary_support">Got any queries? We are happy to help!</string>
     <string name="title_send_feedback">Send Feedback</string>
+    <string name="suggestion_box_tab">Letter to HDK</string>
     <string name="title_faq">FAQ</string>
     <string name="summary_faq">View frequently asked questions</string>
     <string name="url_faq">https://www.androidhive.info/privacy-policy/</string>

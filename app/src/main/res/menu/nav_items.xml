@@ -31,10 +31,13 @@
             android:title="@string/hdk_tv"
             android:icon="@mipmap/ic_nav_video_congress" />
 
-
+        <item android:id="@+id/suggestion_box"
+            android:title="@string/suggestion_box_tab"
+            android:icon="@mipmap/ic_suggestion" />
         <item android:id="@+id/invite"
         android:title="@string/share"
         android:icon="@mipmap/ic_nav_share_congress" />
+
         <item android:id="@+id/settings2"
             android:title="@string/settings_tab"
             android:icon="@mipmap/ic_settings" />
