@@ -178,8 +178,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainFragmentIn
             }
         });
 
-        itemViewHolder.itemHolder.description.setText(mFeedList.get(position).getDescription());
-
+        itemViewHolder.itemHolder.description.setText( mFeedList.get(position).getDescription());
+        itemViewHolder.itemHolder.feedtime.setText(mFeedList.get(position). getTime());
         itemViewHolder.itemHolder.feedheading.setText(mFeedList.get(position).getHeading());
 
         if (mFeedList.get(position).getDescription().length() > 500) {
@@ -215,6 +215,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainFragmentIn
 //            itemHolder.imageView= (ImageView) view.findViewById(R.id.vendor_image_view);
                 itemHolder.recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
                 itemHolder.feedheading= (TextView) view.findViewById(R.id.feed_name);
+                itemHolder.feedtime= (TextView) view.findViewById(R.id.feed_time);
                 itemHolder.btShowmore=(Button)view.findViewById(R.id.btShowmore);
                 itemHolder.imageshareButton= (ImageView)view.findViewById(R.id.shareit);
                 // specify that grid will consist of 2 columns
@@ -276,6 +277,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainFragmentIn
     private static class ItemHolder {
         TextView description;
         TextView feedheading;
+        TextView feedtime;
         ImageView imageView;
         Button btShowmore;
         RecyclerView recyclerView;

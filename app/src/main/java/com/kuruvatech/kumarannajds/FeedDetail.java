@@ -29,6 +29,7 @@ public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailVie
 
     FeedItem feedItem;
     TextView description;
+    TextView feedtime;
     TextView feedheading;
     ImageView imageshareButton;
     public ImageLoader imageLoader;
@@ -50,6 +51,7 @@ public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailVie
         Gson gson = new Gson();
         feedItem = gson.fromJson(intent.getStringExtra("FeedItem"), FeedItem.class);
         description= (TextView) findViewById(R.id.detail_feed_description);
+        feedtime= (TextView) findViewById(R.id.detail_feed_time);
         imageshareButton= (ImageView) findViewById(R.id.detail_shareit );
          feedheading= (TextView) findViewById(R.id.detail_feed_name);
         recyclerView = (RecyclerView) findViewById(R.id.detail_recycler_view);
@@ -98,6 +100,7 @@ public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailVie
       //  btnBack = (Button) findViewById(R.id.back_button);
         description.setText(feedItem.getDescription());
         feedheading.setText(feedItem.getHeading());
+        feedtime.setText(feedItem.getTime());
         //imageLoader.DisplayImage(feedItem.getFeedimages().get(0), imageView);
 
 //        btnBack.setOnClickListener(new View.OnClickListener() {

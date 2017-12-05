@@ -9,7 +9,7 @@ public class FeedItem {
     String description;
     String heading;
     ArrayList<String> feedimages;
-
+    String time;
 
 
     String videoid;
@@ -19,6 +19,7 @@ public class FeedItem {
         heading = new String();
         feedimages = new ArrayList<String>();
         videoid = new String();
+        time = new String();
     }
     public String getDescription() {
         return description;
@@ -49,5 +50,12 @@ public class FeedItem {
 
     public void setVideoid(String videoid) {
         this.videoid = videoid;
+    }
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

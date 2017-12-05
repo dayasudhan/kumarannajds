@@ -44,7 +44,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class MainFragment extends Fragment{
@@ -57,6 +59,7 @@ public class MainFragment extends Fragment{
     private static final String TAG_VIDEO = "feedvideo";
     public static final String API_KEY = "AIzaSyBRLKO5KlEEgFjVgf4M-lZzeGXW94m9w3U";
     public static final String VIDEO_ID = "gy5_T2ACerk";
+    private static final String TAG_TIME = "time";
     Button btnshareApp;
     ArrayList<FeedItem> feedList;
     FeedAdapter adapter;
@@ -238,6 +241,18 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                                     }
                                     feedItem.setFeedimages(strList);
 
+                            }
+                            if (feed_object.has(TAG_TIME)) {
+                                String time = feed_object.getString(TAG_TIME);
+                                Date getDate = null;
+                                SimpleDateFormat existingUTCFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:s");
+                                SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MMM-yy HH:mm a");
+                                try {
+                                    getDate = existingUTCFormat.parse(time);
+                                    feedItem.setTime(fmtOut.format(getDate).toString());
+                                } catch (java.text.ParseException e) {
+                                    e.printStackTrace();
+                                }
                             }
                             feedList.add(feedItem);
                         }

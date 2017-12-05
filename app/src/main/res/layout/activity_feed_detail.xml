@@ -54,7 +54,18 @@ tools:context="com.kuruvatech.kumarannajds.FeedDetail">
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:textSize="20sp"/>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Time"
+            android:textColor="@color/secondary_text_color"
+            android:id="@+id/detail_feed_time"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/detail_feed_name"
+            android:layout_alignLeft="@+id/detail_feed_name"
+            android:layout_alignStart="@+id/detail_feed_name"
+            android:textSize="10sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,9 +75,9 @@ tools:context="com.kuruvatech.kumarannajds.FeedDetail">
             android:textColor="@color/secondary_text_color"
             android:textSize="16sp"
             android:layout_marginTop="3dp"
-            android:layout_below="@+id/detail_feed_name"
-            android:layout_alignLeft="@+id/feed_name"
-            android:layout_alignStart="@+id/detail_feed_name" />
+            android:layout_below="@+id/detail_feed_time"
+            android:layout_alignLeft="@+id/detail_feed_time"
+            android:layout_alignStart="@+id/detail_feed_time" />
 
         <FrameLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
