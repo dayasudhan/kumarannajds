@@ -6,13 +6,6 @@
 
     </style>
 
-    <style name="MyAppTheme" parent="@style/AppTheme" />
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">true</item>
-        <item name="windowNoTitle">true</item>
-
-    </style>
     <!--gagan-->
     <declare-styleable name="CirclePageIndicator">
         <attr name="indicator_spacing" format="dimension" />
@@ -20,22 +13,6 @@
 
     <style name="ProgressBarStyle" parent="@android:style/Widget.ProgressBar.Inverse" />
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <!--gagan-->
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-
-    </style>
-
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="AppTheme.colorPrimaryDark"></style>
 
 </resources>

@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
-    <string name="profile_name" translatable="false">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
-    <string name="profile_phone">9566229075</string>
-    <string name="profile_email" translatable="false">hdkumaraswamy@gmail.com</string>
-    <string name="username">hdk</string>
     <string name="titletext" translatable="false">H D Kumaraswamy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="about_person_description"> H D Kumaraswamy took oath as 18th Chief Minister of Karnataka on February 3, 2006 at the age of 46 Mr.Kumaraswamy was fourth youngest chief minister of Karnataka. As soon as Kumaraswamy took oath as the CM of Karnataka he announced his priorities towards the development of the state.\n" +
@@ -41,10 +37,7 @@
                 "His Janata darshana and Village stay gave him an edge over his predecessors of being a visible CM. He created history by being a first CM to stay in a house of an HIV +ve family .Administrating a coalition government ,where each partner had its own priorities and ideologies to look after is not an easy task but during his tenure as CM came up with number of programs which gave boost to greater Bangalore happen installing confidence among Kannadigas along the border with Maharastra by holding the Belgaum legislative sessions or coming there to rescue of farmers facing mounting debts with the promise of waving loans taken from the Co-operative sector hopes have soared for the people. Loan and 4% interest is by no means a popular measure it came as a result of deep understanding that availability cheap credit is a principal need of agriculture today, The Reserve bank of India appreciated the fiscal reform measures taken while the credit rating information service of India limited (CRISIL) had placed Karnataka in AA-grade based on the economic progress achieved The budget presented under his leadership has concept of gender based budgeting which helped to prioritize public expenditure to respect the concern of the Women.The new industrilal policy 2006-2011 emphasized the proper infrastructure will result in Industrialization\n" +
                 "\n" +
                 "The floods in mid 2006 created havoc in 817 villages affecting 12 lakh people considering the gravity of the issue his government put into place a plan to take up permanent relief measure perennially flood-prone district and for the first time 90 villages in Belguam,Bijapur, Bagalkot, Raichur, Koppal and Gulbarga were shifted. North Karnataka was the one of his top priorities. Unfortunately because of his short tenure he could not complete all his dreams about Karnataka,though his tenure was too short he did what his predecessors couldn’t in last 60 years. Kumaraswamy was a common man’s CM.</string>
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title_activity_splash" translatable="false">SplashActivity</string>
-    <string name="head_lines">Headlines</string>
-    <string name="no_products">There are no products in this category</string>
     <string name="home">Home</string>
     <string name="about_person">About Kumaraswamy</string>
     <string name="as_chief">As a Chief Minister</string>
@@ -54,19 +47,11 @@
     <string name="image_gallery">Image Gallery</string>
     <string name="hdk_tv">HDK TV</string>
     <string name="share">Share This App</string>
-    <string name="btn_show_more">Showmore...</string>
-    <string name="news_content_empty">News Content Empty</string>
-    <string name="tell_friend">tell a friend</string>
-    <string name="welcome_android_bite">Welcome to AndroidBite !!!</string>
-    <string name="invite_head">Invite Friends</string>
     <string name="settings_tab">Settings</string>
 
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
-
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_settings">Settings</string>
 
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_ringtone_silent">Silent</string>
@@ -75,24 +60,12 @@
     <!--<string name="title_upload_quality">Select language</string>-->
     <string name="summary_language">English or Kannada</string>
 
-    <string name="switch_language">Auto upload</string>
-
-
 
     <string name="hint_name">Full Name</string>
     <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
     <string name="btn_sign_up">Send letter</string>
-    <string name="err_msg_name">Enter your full name</string>
-    <string name="err_msg_email">Enter valid email address</string>
-    <string name="err_msg_password">Enter the password</string>
     <string name="hint_phone">Valid Phone Number</string>
 
-    <string name="default_gallery_storage">My Videos</string>
-    <string name="title_auto_upload">Auto upload</string>
-    <string name="summary_upload_over_wifi">Upload the videos when wifi is available</string>
-    <string name="title_upload_quality">Upload Quality</string>
-    <string name="summary_upload_video_quality">Specify video quality for uploads</string>
     <string name="pref_title_notifications">Notifications</string>
     <string name="summary_choose_ringtone">Choose notification sound</string>
     <string name="pref_header_about">About</string>
@@ -101,21 +74,11 @@
     <string name="summary_support">Got any queries? We are happy to help!</string>
     <string name="title_send_feedback">Send Feedback</string>
     <string name="suggestion_box_tab">Letter to HDK</string>
-    <string name="title_faq">FAQ</string>
-    <string name="summary_faq">View frequently asked questions</string>
-    <string name="url_faq">https://www.androidhive.info/privacy-policy/</string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="url_privacy">https://www.androidhive.info/privacy-policy/</string>
-    <string name="title_terms">Terms &amp; Conditions</string>
-    <string name="url_terms">https://www.androidhive.info/terms-of-service/</string>
     <string name="title_version">Version</string>
     <string name="choose_email_client">Choose email client</string>
-    <string name="title_gallery_storage">Default Storage</string>
     <string name="title_new_notification_sound">New message notification</string>
     <string name="title_vibrate">Vibrate</string>
     <string name="summary_vibrate">Vibrate on new notification</string>
-    <string name="key_upload_over_wifi">key_upload_over_wifi</string>
-    <string name="key_gallery_name">key_gallery_name</string>
     <string name="key_upload_quality">key_upload_quality</string>
     <string name="notifications_new_message">notifications_new_message</string>
     <string name="key_notifications_new_message_ringtone">key_notifications_new_message_ringtone</string>

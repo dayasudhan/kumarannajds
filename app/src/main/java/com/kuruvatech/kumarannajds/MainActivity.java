@@ -108,24 +108,24 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.addOnTabSelectedListener(this);
-         if (!checkNotificationListenerServiceRunning()) {
-            Toast.makeText(getApplicationContext(),"hi update 1",Toast.LENGTH_LONG).show();
-            startService(new Intent(this, NotificationListener.class));
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"hi update 2",Toast.LENGTH_LONG).show();
-        }
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        notificationManager.cancelAll();
-        String notification=getIntent().getStringExtra("notificationFragment");
-        if (notification!=null &&notification.equals("fcm")) {
-            try {
-//                MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.frame);
-//                fragment.getFeeds();
-            } catch (ClassCastException e){
-            }
-        }
+//         if (!checkNotificationListenerServiceRunning()) {
+//            Toast.makeText(getApplicationContext(),"hi update 1",Toast.LENGTH_LONG).show();
+//            startService(new Intent(this, NotificationListener.class));
+//        }
+//        else
+//        {
+//            Toast.makeText(getApplicationContext(),"hi update 2",Toast.LENGTH_LONG).show();
+//        }
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//        notificationManager.cancelAll();
+//        String notification=getIntent().getStringExtra("notificationFragment");
+//        if (notification!=null &&notification.equals("fcm")) {
+//            try {
+////                MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.frame);
+////                fragment.getFeeds();
+//            } catch (ClassCastException e){
+//            }
+//        }
         if (!isOnline(MainActivity.this))
         {
             try {

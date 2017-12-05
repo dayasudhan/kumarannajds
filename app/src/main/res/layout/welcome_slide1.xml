@@ -9,7 +9,6 @@
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/imageView2"
         android:src="@drawable/walkin0"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
