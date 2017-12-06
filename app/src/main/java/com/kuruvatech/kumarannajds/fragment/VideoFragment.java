@@ -56,6 +56,7 @@ public class VideoFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         //to use RecycleView, you need a layout manager. default is LinearLayoutManager
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+    //    GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         isSwipeRefresh = false;

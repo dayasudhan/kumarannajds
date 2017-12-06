@@ -1,7 +1,9 @@
 package com.kuruvatech.kumarannajds;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.kuruvatech.kumarannajds.utils.ImageLoader;
 import com.google.android.youtube.player.YouTubeThumbnailLoader;
 import com.google.android.youtube.player.YouTubeThumbnailView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailView.OnInitializedListener{
@@ -37,7 +40,7 @@ public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailVie
     RecyclerView recyclerView;
     Adapter adapter;
     FrameLayout frameLayout;;
-    ImageView imagePlayBotton;
+    ImageView imagePlayBotton ,toolbarImage;
     private YouTubeThumbnailView youTubeThumbnailView;
     private YouTubeThumbnailLoader youTubeThumbnailLoader;
     public static final String API_KEY = "AIzaSyBRLKO5KlEEgFjVgf4M-lZzeGXW94m9w3U";
@@ -53,13 +56,26 @@ public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailVie
         description= (TextView) findViewById(R.id.detail_feed_description);
         feedtime= (TextView) findViewById(R.id.detail_feed_time);
         imageshareButton= (ImageView) findViewById(R.id.detail_shareit );
+        toolbarImage = (ImageView) findViewById(R.id.toolbarImage );
          feedheading= (TextView) findViewById(R.id.detail_feed_name);
         recyclerView = (RecyclerView) findViewById(R.id.detail_recycler_view);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         // provide our CustomSpanSizeLookup which determines how many spans each item in grid will occupy
         gridLayoutManager.setSpanSizeLookup(new CustomSpanSizeLookup());
         recyclerView.setLayoutManager(gridLayoutManager);
-        adapter = new Adapter(this,feedItem.getFeedimages());
+        ArrayList<String> imagelist = feedItem.getFeedimages();
+        if(feedItem.getFeedimages().size()>0)
+        {
+            imageLoader.DisplayImage(feedItem.getFeedimages().get(0),toolbarImage);
+            imagelist.remove(0);
+        }
+        else
+        {
+            toolbarImage.setVisibility(View.GONE);
+        }
+
+
+        adapter = new Adapter(this,imagelist);
         recyclerView.setAdapter(adapter);
         frameLayout = (FrameLayout)findViewById(R.id.youtube_frame);
         imagePlayBotton = (ImageView)findViewById(R.id.play_video);
@@ -149,19 +165,29 @@ public class FeedDetail extends AppCompatActivity implements YouTubeThumbnailVie
                 //startActivity(Intent.createChooser(sendIntent, "Share link!"));
             }
         });
-        setToolBar(getString(R.string.titletext));
+       setToolBar("");
     } //9740668897
 
     private void setToolBar(String areaClicked) {
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(tb);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         ActionBar ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.mipmap.ic_back);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(areaClicked);
-//        tb.setTitleTextColor(Color.rgb(Constants.TITLE_TEXT_COLOR_RED,
-//                Constants.TITLE_TEXT_COLOR_GREEN, Constants.TITLE_TEXT_COLOR_BLUE));
+
+        CollapsingToolbarLayout collapsingToolbar;
+        collapsingToolbar =  (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar);
+       // collapsingToolbar.set
+//        tb.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
+//        tb.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                onBackPressed();
+//            }
+//        });
     }
 
     @Override
