@@ -47,7 +47,7 @@
                     android:clickable="true"
 
                     android:id="@+id/video_cardview"
-                    card_view:cardCornerRadius="10dp"
+                    card_view:cardCornerRadius="5dp"
                     card_view:cardElevation="10dp"
                     android:layout_marginTop="10dp"
                     card_view:cardBackgroundColor="@android:color/black"
@@ -58,8 +58,8 @@
                     android:id="@+id/pager"
                     android:layout_height="150dp"
                     android:layout_width="fill_parent"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="0dp"
                     android:scaleType="fitXY" />
 
                 <com.kuruvatech.kumarannajds.utils.CirclePageIndicator

@@ -92,6 +92,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         session = new SessionManager(getApplicationContext());
 
         setContentView(R.layout.activity_main_new);
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.USERNAME);
+        String token = FirebaseInstanceId.getInstance().getToken();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -100,8 +102,8 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
         setNavigationDrawer();
         setToolBar();
-        FirebaseMessaging.getInstance().subscribeToTopic(Constants.USERNAME);
-        String token = FirebaseInstanceId.getInstance().getToken();
+
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 //

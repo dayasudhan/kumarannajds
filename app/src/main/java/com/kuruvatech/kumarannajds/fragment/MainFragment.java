@@ -50,8 +50,8 @@ import java.util.Date;
 
 
 public class MainFragment extends Fragment{
-    private static final String TAG_FEEDS = "feeds";
-    private static final String TAG_ID = "id";
+    private static final String TAG_FEEDS = "newsfeed";
+    private static final String TAG_SCROLLIMAGES = "scrollimages";
     private static final String TAG_HEADING = "heading";
     private static final String TAG_DESCRIPTION = "description";
     private static final String TAG_FEEDIMAGES = "feedimages";
@@ -215,8 +215,14 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
 
                     String data = EntityUtils.toString(entity,HTTP.UTF_8);
 
-                    JSONArray feedsarray = new JSONArray(data);
-                    for (int i = 0; i < feedsarray.length(); i++) {
+                    //JSONArray feedsarray = new JSONArray(data);
+                    JSONObject feed_object2 = new JSONObject(data);
+
+                    if (feed_object2.has(TAG_FEEDS)) {
+                        //feed_object2.getString(TAG_FEEDS);
+                        JSONArray feedsarray = new JSONArray(feed_object2.getString(TAG_FEEDS));
+
+                        for (int i = 0; i < feedsarray.length(); i++) {
                             JSONObject feed_object = feedsarray.getJSONObject(i);
                             FeedItem feedItem = new FeedItem();
                             if (feed_object.has(TAG_HEADING)) {
@@ -231,15 +237,15 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                             }
                             if (feed_object.has(TAG_FEEDIMAGES)) {
                                 JSONArray feedimagesarray = feed_object.getJSONArray(TAG_FEEDIMAGES);
-                                    ArrayList<String> strList = new ArrayList<String>();
-                                    strList.clear();
-                                    for (int j = 0; j < feedimagesarray.length(); j++) {
-                                        JSONObject image_object = feedimagesarray.getJSONObject(j);
-                                        if (image_object.has(TAG_URL)) {
-                                            strList.add(image_object.getString(TAG_URL));
-                                        }
+                                ArrayList<String> strList = new ArrayList<String>();
+                                strList.clear();
+                                for (int j = 0; j < feedimagesarray.length(); j++) {
+                                    JSONObject image_object = feedimagesarray.getJSONObject(j);
+                                    if (image_object.has(TAG_URL)) {
+                                        strList.add(image_object.getString(TAG_URL));
                                     }
-                                    feedItem.setFeedimages(strList);
+                                }
+                                feedItem.setFeedimages(strList);
 
                             }
                             if (feed_object.has(TAG_TIME)) {
@@ -256,6 +262,11 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                             }
                             feedList.add(feedItem);
                         }
+                    }
+                    if(feed_object2.has(TAG_SCROLLIMAGES))
+                    {
+
+                    }
                     return true;
                 }
            } catch (IOException e) {

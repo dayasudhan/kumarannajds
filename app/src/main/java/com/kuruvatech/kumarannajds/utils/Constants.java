@@ -9,11 +9,14 @@ public class Constants {
     public static final String DEBUG_URL = "http://chunavane.herokuapp.com";
 
     public static final String MAIN_URL = DEBUG_URL;
-
-    public static final String GET_FEEDS_URL = MAIN_URL + "/v1/feed/info/";
+    public static final String USERNAME = "apptest24";
+    public static final String PARTY = "jds";
+    public static final String GET_FEEDS_URL = MAIN_URL + "/v2/feed/info/";
     public static final String GET_IMAGES_URL = MAIN_URL + "/v1/feed/images/";
     public static final String GET_VIDEOS_URL = MAIN_URL + "/v1/feed/videos/";
-    public static final String GET_MANIFESTO_URL = MAIN_URL + "/v1/feed/manifesto/jds";
+    public static final String GET_MANIFESTO_URL = MAIN_URL + "/v1/feed/manifesto/" + PARTY;
+    public static final String POST_LETTER_URL = MAIN_URL + "/v1/candidate/suggestion/" +USERNAME;
+
 
     public static final String FIREBASE_APP = "https://project-8598805513533999178.firebaseio.com";
     //To store the firebase id in shared preferences
@@ -31,7 +34,7 @@ public class Constants {
     public static final String SECUREKEY_VALUE = "EjR7tUPWx7WhsVs9FuVO6veFxFISIgIxhFZh6dM66rs";
     public static final String VERSION_VALUE = "1";
     public static final String CLIENT_VALUE = "bhoomika";
-    public static final String USERNAME = "hdk";
+
 
     public static final int TITLE_TEXT_COLOR_RED = 00;
     public static final int TITLE_TEXT_COLOR_GREEN = 177;

@@ -19,8 +19,10 @@ import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.kuruvatech.kumarannajds.MainActivity;
 import com.kuruvatech.kumarannajds.R;
+import com.kuruvatech.kumarannajds.model.Letter;
 import com.kuruvatech.kumarannajds.utils.Constants;
 
 import org.apache.http.HttpEntity;
@@ -36,6 +38,8 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import static com.kuruvatech.kumarannajds.utils.Constants.POST_LETTER_URL;
 
 /**
  * Created by dayas on 05-12-2017.
@@ -73,21 +77,30 @@ public class SuggetionFragment  extends Fragment {
                     alertMessage("Enter Name");
                 }
                 else if(lettercontent.trim().length() == 0){
-                    editName.setFocusableInTouchMode(true);
-                    editName.requestFocus();
+                    lettertextview.setFocusableInTouchMode(true);
+                    lettertextview.requestFocus();
                     alertMessage("Write Something into letter");
                 }
                 else
                 {
-                    postLetter("");
+                    Letter letter = new Letter();
+                    letter.setEmailid(editEmail.getText().toString());
+                    letter.setName(editName.getText().toString());
+                    letter.setLetter(lettertextview.getText().toString());
+                    letter.setPhone(editPhone.getText().toString());
+
+                    Gson gson = new Gson();
+                    String strOrder = gson.toJson(letter);
+
+                    postLetter(strOrder);
                 }
             }
         });
         return view;
     }
-    public void postLetter(String order)
+    public void postLetter(String letter)
     {
-       // new PostJSONAsyncTask().execute("", order);
+        new PostJSONAsyncTask().execute(POST_LETTER_URL, letter);
     }
     public  class PostJSONAsyncTask extends AsyncTask<String, Void, Boolean> {
         Dialog dialog;
