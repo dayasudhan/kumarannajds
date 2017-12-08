@@ -9,6 +9,10 @@ public class FeedItem {
     String description;
     String heading;
     ArrayList<String> feedimages;
+
+
+
+//    ArrayList<String> scrollimages;
     String time;
 
 
@@ -18,8 +22,10 @@ public class FeedItem {
         description = new String();
         heading = new String();
         feedimages = new ArrayList<String>();
+//        scrollimages = new ArrayList<String>();
         videoid = new String();
         time = new String();
+
     }
     public String getDescription() {
         return description;
@@ -58,4 +64,11 @@ public class FeedItem {
     public void setTime(String time) {
         this.time = time;
     }
+//    public ArrayList<String> getScrollimages() {
+//        return scrollimages;
+//    }
+//
+//    public void setScrollimages(ArrayList<String> scrollimages) {
+//        this.scrollimages = scrollimages;
+//    }
 }

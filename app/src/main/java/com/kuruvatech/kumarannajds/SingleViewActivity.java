@@ -42,7 +42,7 @@ public class SingleViewActivity extends AppCompatActivity {
                 Intent shareIntent = new Intent();
 
                 ArrayList<Uri> imageUris = new ArrayList<Uri>();
-                imageUris.add(Uri.parse(url));
+                imageUris.add(Uri.parse(imageLoader.getFilePath(url)));
                 shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
                 shareIntent.setType("image/*");
                 shareIntent.setAction(Intent.ACTION_SEND);

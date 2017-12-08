@@ -62,6 +62,7 @@ public class MainFragment extends Fragment{
     private static final String TAG_TIME = "time";
     Button btnshareApp;
     ArrayList<FeedItem> feedList;
+    ArrayList<String> scrollimages;
     FeedAdapter adapter;
     MainAdapter adapter2;
     View rootview;
@@ -75,6 +76,8 @@ public class MainFragment extends Fragment{
     int sliderIndex=0,sliderMaxImages = 4;
     int delayMiliSec = 8000;
 	private Handler handler;
+    ScreenSlidePagerAdapter pagerAdapter;
+    CirclePageIndicator indicator;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -115,12 +118,11 @@ public class MainFragment extends Fragment{
 //        String dimention = " height=>" + String.valueOf(displayHeight) + " width=>" + String.valueOf(displayWidth) +
 //                " height2=>" + String.valueOf(displayHeight2) + "width2=>" + String.valueOf(displayWidth2);
 //        alertMessage(dimention);
-        ScreenSlidePagerAdapter pagerAdapter =new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),getActivity().getApplicationContext(),displayWidth);
+        pagerAdapter =new ScreenSlidePagerAdapter(getActivity().getSupportFragmentManager(),getActivity().getApplicationContext(),displayWidth);
         pager.setPageTransformer(true, new ZoomOutPageTransformer());
-        pagerAdapter.addAll(session.getSlider());
-        pager.setAdapter(pagerAdapter);
-        CirclePageIndicator indicator = (CirclePageIndicator) rootview.findViewById(R.id.indicator);
-        indicator.setViewPager(pager);
+
+        indicator = (CirclePageIndicator) rootview.findViewById(R.id.indicator);
+
 //pager.setMinimumHeight();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -161,6 +163,9 @@ public class MainFragment extends Fragment{
         {
             noFeedstv.setVisibility(View.VISIBLE);
         }
+        pagerAdapter.addAll(scrollimages);
+        pager.setAdapter(pagerAdapter);
+        indicator.setViewPager(pager);
       //  session.setLastNewsFeed(feedList);
     }
     public void getFeeds()
@@ -222,7 +227,7 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                         //feed_object2.getString(TAG_FEEDS);
                         JSONArray feedsarray = new JSONArray(feed_object2.getString(TAG_FEEDS));
 
-                        for (int i = 0; i < feedsarray.length(); i++) {
+                        for (int i = feedsarray.length() -1; i >= 0; i--) {
                             JSONObject feed_object = feedsarray.getJSONObject(i);
                             FeedItem feedItem = new FeedItem();
                             if (feed_object.has(TAG_HEADING)) {
@@ -265,7 +270,15 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                     }
                     if(feed_object2.has(TAG_SCROLLIMAGES))
                     {
-
+                        JSONArray feedimagesarray = new JSONArray(feed_object2.getString(TAG_SCROLLIMAGES));
+                        scrollimages = new ArrayList<String>();
+                        scrollimages.clear();
+                        for (int j = 0; j < feedimagesarray.length(); j++) {
+                            JSONObject image_object = feedimagesarray.getJSONObject(j);
+                            if (image_object.has(TAG_URL)) {
+                                scrollimages.add(image_object.getString(TAG_URL));
+                            }
+                        }
                     }
                     return true;
                 }

@@ -48,7 +48,7 @@
     <string name="hdk_tv">HDK TV</string>
     <string name="share">Share This App</string>
     <string name="settings_tab">Settings</string>
-
+    <string name="tell_friend">Tell a friend</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT</string>
@@ -65,10 +65,13 @@
     <string name="hint_email">Email</string>
     <string name="btn_sign_up">Send letter</string>
     <string name="hint_phone">Valid Phone Number</string>
+    <string name="connect_to_person">Connect to HDK</string>
 
-    <string name="pref_title_notifications">Notifications</string>
-    <string name="summary_choose_ringtone">Choose notification sound</string>
+
     <string name="pref_header_about">About</string>
+    <string name="pref_header_contact_ust">Contact Us</string>
+    <string name="pref_header_email">kuruvatechnologies@gmail.com</string>
+
     <string name="summary_about">We are a team of like-minded people from Kuruva Technologies LLP, specialized in development of Android App Development creating new trends across the app space. Glad to Help in anyway!</string>
     <string name="app_version">3.5</string>
     <string name="summary_support">Got any queries? We are happy to help!</string>

@@ -58,6 +58,7 @@ public class CirclePageIndicator extends LinearLayout implements ViewPager.OnPag
     public void setViewPager(ViewPager pager) {
       //  userDefinedPageChangeListener = getOnPageChangeListener(pager);
         pager.setOnPageChangeListener(this);
+        removeAllViews();
         addIndicator(pager.getAdapter().getCount());
     }
 

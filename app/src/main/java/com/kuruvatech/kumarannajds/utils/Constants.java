@@ -9,7 +9,7 @@ public class Constants {
     public static final String DEBUG_URL = "http://chunavane.herokuapp.com";
 
     public static final String MAIN_URL = DEBUG_URL;
-    public static final String USERNAME = "apptest24";
+    public static final String USERNAME = "hdk";
     public static final String PARTY = "jds";
     public static final String GET_FEEDS_URL = MAIN_URL + "/v2/feed/info/";
     public static final String GET_IMAGES_URL = MAIN_URL + "/v1/feed/images/";
@@ -39,11 +39,11 @@ public class Constants {
     public static final int TITLE_TEXT_COLOR_RED = 00;
     public static final int TITLE_TEXT_COLOR_GREEN = 177;
     public static final int TITLE_TEXT_COLOR_BLUE = 106;
-    public static final String SLIDER_URL1= "https://chunavane.s3.amazonaws.com/hdk/main1511347643328.jpg";
-    public static final String SLIDER_URL3="https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511185615407.jpg";
-    public static final String SLIDER_URL2="https://gallery.oneindia.com/ph-big/2013/04/hd-kumaraswamy_136490242813.jpg";
-    public static final String SLIDER_URL4="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg";
-    public static final String SLIDER_URL5="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/hqdefault.jpg";
-    public static final String SLIDER_URL6="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/19665643_350745285342945_1332574716575418921_n.jpg";
+//    public static final String SLIDER_URL1= "https://chunavane.s3.amazonaws.com/hdk/main1511347643328.jpg";
+//    public static final String SLIDER_URL3="https://chunavane.s3.ap-south-1.amazonaws.com/hdk/main1511185615407.jpg";
+//    public static final String SLIDER_URL2="https://gallery.oneindia.com/ph-big/2013/04/hd-kumaraswamy_136490242813.jpg";
+//    public static final String SLIDER_URL4="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/images.jpg";
+//    public static final String SLIDER_URL5="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/hqdefault.jpg";
+//    public static final String SLIDER_URL6="https://s3.ap-south-1.amazonaws.com/chunavane/hdk/19665643_350745285342945_1332574716575418921_n.jpg";
 
 }

@@ -398,11 +398,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
                 dLayout.openDrawer(GravityCompat.START);
                 return true;
             }
-            case  R.id.action_settings: {
-                // launch settings activity
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-                return true;
-            }
+
         }
         return false;
     }

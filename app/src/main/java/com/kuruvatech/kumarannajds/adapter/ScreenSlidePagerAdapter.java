@@ -27,8 +27,8 @@ public class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        SessionManager session = new SessionManager(mContext);
-        return ScreenSlidePageFragment.newInstance(session.getSlider().get(i));
+
+        return ScreenSlidePageFragment.newInstance(this.picList.get(i));
     }
 
     @Override

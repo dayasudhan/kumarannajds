@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,24 +58,31 @@ public class FullScreenImageAdapter extends PagerAdapter {
                 false);
 
         imgDisplay = (ImageView) viewLayout.findViewById(R.id.SingleView);
-     //   btnClose = (Button) viewLayout.findViewById(R.id.btnClose);
+        ImageView imageShareView = (ImageView) viewLayout.findViewById(R.id.imagesharebutton2);
 
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
         imageLoader.DisplayImage(_imagePaths.get(position), imgDisplay);
-//        Bitmap bitmap = BitmapFactory.decodeFile(_imagePaths.get(position), options);
-//        imgDisplay.setImageBitmap(bitmap);
-
-        // close button click event
-//        btnClose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                _activity.finish();
-//            }
-//        });
+        final String imageurl = _imagePaths.get(position);
 
         ((ViewPager) container).addView(viewLayout);
+        imageShareView.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View arg0) {
+                Intent shareIntent = new Intent();
+
+                ArrayList<Uri> imageUris = new ArrayList<Uri>();
+                imageUris.add(Uri.parse(imageLoader.getFilePath(imageurl)));
+                shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
+                shareIntent.setType("image/*");
+                shareIntent.setAction(Intent.ACTION_SEND);
+                _activity.startActivity(Intent.createChooser(shareIntent, "Share it ...."));
+            }
+
+
+
+        });
         return viewLayout;
     }
     private void setToolBar(String areaClicked) {
