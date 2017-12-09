@@ -1,55 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/profileinfo"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/backgroundgagan"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:weightSum="1">
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout android:theme="@style/ThemeOverlay.AppCompat.Dark"
+android:orientation="vertical"
+android:gravity="bottom"
+android:layout_height="@dimen/nav_header_height"
+android:layout_width="match_parent"
+android:id="@+id/profileinfo"
+xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ImageView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/img_header_bg" android:src="@drawable/navheader" android:scaleType="fitXY"/>
 
 
-    <ImageButton
+<LinearLayout android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="wrap_content" android:padding="@dimen/activity_horizontal_margin" android:layout_centerVertical="true">
+
+    <ImageView android:layout_height="@dimen/profile_height"
+        android:layout_width="@dimen/profile_width"
+        android:id="@+id/img_profile"
+        app:srcCompat="@mipmap/ic_prof_heading"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"/>
+
+    <TextView android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:id="@+id/name"
+        android:text="@string/titletext"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-        android:background="@drawable/profile_heading" />
-
-    <!--<RelativeLayout-->
-        <!--android:layout_width="wrap_content"-->
-         <!--android:layout_height="wrap_content"-->
-        <!--&gt;-->
-        <!--<Switch-->
-
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/language"-->
-            <!--android:text="English/Kannada"/>-->
-        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-            <!--&lt;!&ndash;android:id="@+id/myNameHeader"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-             <!--&lt;!&ndash;android:text="@string/app_name"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceSmall" />&ndash;&gt;-->
-
-        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-            <!--&lt;!&ndash;android:id="@+id/eMailHeader"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_below="@id/myNameHeader"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:text="@string/profile_email"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:textAppearance="?android:attr/textAppearanceSmall" />&ndash;&gt;-->
-
-        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-            <!--&lt;!&ndash;android:id="@+id/phNoHeader"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_below="@id/eMailHeader"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:layout_centerVertical="true"&ndash;&gt;-->
-            <!--&lt;!&ndash;android:text="@string/profile_phone" />&ndash;&gt;-->
-
-
-    <!--</RelativeLayout>-->
 
 
 </LinearLayout>
+
+</RelativeLayout>

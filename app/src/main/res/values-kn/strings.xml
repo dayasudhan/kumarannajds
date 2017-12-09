@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
-    <string name="titletext" translatable="false">ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
+    <string name="app_name">H D Kumaraswamy</string>
+    <string name="titletext" >ಹೆಚ್.ಡಿ. ಕುಮಾರಸ್ವಾಮಿ</string>
     <string name="about_person_description">ವೈಯಕ್ತಿಕ ಜೀವನ: ಎಚ್ ಡಿ ಕುಮಾರಸ್ವಾಮಿ ಇವರು ಕರ್ನಾಟಕದ 18ನೇ ಮುಖ್ಯಮಂತ್ರಿಗಳಾಗಿದ್ದರು. ಇವರು ಹಾಸನ ಜಿಲ್ಲೆಯ ಹೊಳೇನರಸಿಪುರ ತಾಲೂಕಿನ ಹರದನಹಳ್ಳಿಯಲ್ಲಿ ಜನಿಸಿದ್ದಾರೆ. ಹೈಸ್ಕೂಲ್ ವಿದ್ಯಾಭ್ಯಾಸವನ್ನು ಬೆಂಗಳೂರಿನ ಎಮ್.ಇ.ಎಸ್ ವಿದ್ಯಾಸಂಸ್ಥೆಯಲ್ಲಿ ಮುಗಿಸಿದ್ದಾರೆ.
 
 ಬೆಂಗಳೂರಿನ ಜಯನಗರದಲ್ಲಿರುವ ವಿಜಯ ಕಾಲೇಜ್ ನಲ್ಲಿ ಪಿಯುಸಿಯನ್ನು ಮುಗಿಸಿದ್ದಾರೆ. ನ್ಯಾಷನಲ್ ಕಾಲೇಜ್ ನಲ್ಲಿ ಬಿಎಸ್ಸಿ ಪದವಿಯನ್ನು ಪಡೆದುಕೊಂಡಿದ್ದಾರೆ. ಮಾರ್ಚ್ 13 1986 ರಲ್ಲಿ ಅನಿತಾ ಎನ್ನವರನ್ನು ಕೈಹಿಡಿದಿದ್ದಾರೆ. ನಿಖಿಲ್ ಗೌಡ ಎನ್ನುವ ಪುತ್ರನಿದ್ದಾನೆ. ಇವರ ತಂದೆ ಎಚ್ ಡಿ ದೇವೇಗೌಡ ಅವರು ಕರ್ನಾಟಕದಿಂದ ಏಕೈಕ ಪ್ರಧಾನ ಮಂತ್ರಿಗಳಾಗಿದ್ದರು.
@@ -37,12 +37,15 @@
     <string name="hint_email">ಇಮೇಲ್</string>
     <string name="btn_sign_up">ಪತ್ರ ಕಳುಹಿಸಿ</string>
     <string name="hint_phone">ದೂರವಾಣಿ ಸಂಖ್ಯೆ</string>
-    <string name="connect_to_person">ಪತ್ರ ಬರೆಯಿರಿK</string>
+    <string name="connect_to_person">ಪತ್ರ ಬರೆಯಿರಿ</string>
 
     <string name="pref_header_about">ನಮ್ಮ ಬಗ್ಗೆ</string>
     <string name="pref_header_contact_ust">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</string>
     <string name="pref_header_email">kuruvatechnologies@gmail.com</string>
 
     <string name="summary_about">We are a team of like-minded people from Kuruva Technologies LLP, specialized in development of Android App Development creating new trends across the app space. Glad to Help in anyway!</string>
-
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="app_version">1.0</string>
 </resources>
