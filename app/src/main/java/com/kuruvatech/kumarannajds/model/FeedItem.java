@@ -9,19 +9,18 @@ public class FeedItem {
     String description;
     String heading;
     ArrayList<String> feedimages;
-
-
-
-//    ArrayList<String> scrollimages;
     String time;
-
-
     String videoid;
+
+    ArrayList<String> feedvideos;
+    ArrayList<String> feedaudios;
     public FeedItem()
     {
         description = new String();
         heading = new String();
         feedimages = new ArrayList<String>();
+        feedvideos = new ArrayList<String>();
+        feedaudios = new ArrayList<String>();
 //        scrollimages = new ArrayList<String>();
         videoid = new String();
         time = new String();
@@ -64,11 +63,20 @@ public class FeedItem {
     public void setTime(String time) {
         this.time = time;
     }
-//    public ArrayList<String> getScrollimages() {
-//        return scrollimages;
-//    }
-//
-//    public void setScrollimages(ArrayList<String> scrollimages) {
-//        this.scrollimages = scrollimages;
-//    }
+    public ArrayList<String> getFeedvideos() {
+        return feedvideos;
+    }
+
+    public void setFeedvideos(ArrayList<String> feedvideos) {
+        this.feedvideos = feedvideos;
+    }
+
+    public ArrayList<String> getFeedaudios() {
+        return feedaudios;
+    }
+
+    public void setFeedaudios(ArrayList<String> feedaudios) {
+        this.feedaudios = feedaudios;
+    }
+
 }

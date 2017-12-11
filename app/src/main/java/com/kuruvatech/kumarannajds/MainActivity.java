@@ -50,6 +50,7 @@ import com.kuruvatech.kumarannajds.fragment.ShareAppFragment;
 import com.kuruvatech.kumarannajds.fragment.SuggetionFragment;
 import com.kuruvatech.kumarannajds.fragment.VideoFragment;
 import com.kuruvatech.kumarannajds.fragment.Settingfragment;
+import com.kuruvatech.kumarannajds.fragment.VideoPlayerFragment;
 import com.kuruvatech.kumarannajds.utils.Constants;
 import com.kuruvatech.kumarannajds.utils.SessionManager;
 import com.splunk.mint.Mint;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private boolean fromUser=true;
+    ViewPagerAdapter adapter;
     Toolbar tb;
     public boolean isOnline(Context context) {
         ConnectivityManager conMgr = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -105,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+
         setupViewPager(viewPager);
 //
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -330,7 +333,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MainFragment(), getString(R.string.home));
         adapter.addFragment(new AboutFragment(), getString(R.string.about_person));
         adapter.addFragment(new CmFragment(), getString(R.string.as_chief));
@@ -343,6 +346,7 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
         adapter.addFragment(new ShareAppFragment(), getString(R.string.share));
         adapter.addFragment(new Settingfragment(), getString(R.string.settings_tab));
         viewPager.setAdapter(adapter);
+
     }
     boolean doubleBackToExitPressedOnce = false;
 
@@ -500,23 +504,6 @@ public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSe
 
     }
 
-
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//        int id = item.getItemId();
-//
-//        if (id == R.id.about_candiate) {
-//            viewPager.setCurrentItem(0);
-//        } else if (id == R.id.achievements) {
-//            viewPager.setCurrentItem(1);
-//        } else if (id == R.id.as_a_position) {
-//            viewPager.setCurrentItem(2);
-//        }
-//
-//        drawer.closeDrawer(GravityCompat.START);
-//        return true;
-//
-//    }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();

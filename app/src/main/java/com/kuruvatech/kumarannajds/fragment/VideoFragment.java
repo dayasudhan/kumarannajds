@@ -15,7 +15,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
+
 import com.kuruvatech.kumarannajds.R;
 import com.kuruvatech.kumarannajds.adapter.YoutubeRecyclerAdapter;
 import com.kuruvatech.kumarannajds.model.FeedItem;
@@ -37,6 +37,8 @@ public class VideoFragment extends Fragment {
     private static final String TAG_DESCRIPTION = "description";
     private static final String TAG_FEEDIMAGES = "feedimages";
     private static final String TAG_VIDEO = "feedvideo";
+    private static final String TAG_FEEDVIDEOS = "feedvideos";
+    private static final String TAG_FEEDAUDIOS = "feedaudios";
     private static final String TAG_URL = "url";
   //  RecyclerView recyclerView;
   //  Adapter adapter;
@@ -74,26 +76,36 @@ public class VideoFragment extends Fragment {
         swipeRefreshLayout.setProgressBackgroundColor(android.R.color.transparent);
         return view;
     }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//    }
+//    @Override
+//    public void setUserVisibleHint(boolean visible)
+//    {
+//        super.setUserVisibleHint(visible);
+//        if (visible  && isResumed())
+//        {
+//            //Only manually call onResume if fragment is already visible
+//            //Otherwise allow natural fragment lifecycle to call onResume
+//            onResume();
+//        }
+//    }
+
     @Override
-    public void onResume() {
+    public void onResume()
+    {
         super.onResume();
     }
+
+
+
     public void initAdapter()
     {
-        // adapter = new FeedAdapter(getActivity(),R.layout.feeditem,feedList);
-//        adapter = new Adapter(getActivity(),imageList);
-//        recyclerView.setAdapter(adapter);
-
         adapter=new YoutubeRecyclerAdapter(getContext(),feedList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-//        if(imageList.size() > 0 ) {
-//            noFeedstv.setVisibility(View.INVISIBLE);
-//        }
-//        else
-//        {
-//            noFeedstv.setVisibility(View.VISIBLE);
-//        }
+
     }
     public void getVideos()
     {
@@ -103,8 +115,9 @@ public class VideoFragment extends Fragment {
     }
 
 
+
     public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
-        Dialog dialog;
+
         public JSONAsyncTask() {
 
         }
@@ -114,12 +127,7 @@ public class VideoFragment extends Fragment {
             super.onPreExecute();
             if(isSwipeRefresh == false) {
                 swipeRefreshLayout.setRefreshing(true);
-//                dialog = new Dialog(getActivity(), android.R.style.Theme_Translucent);
-//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//                dialog.setContentView(R.layout.custom_progress_dialog);
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-//                dialog.show();
-//                dialog.setCancelable(true);
+
             }
 
         }
@@ -161,7 +169,32 @@ public class VideoFragment extends Fragment {
                         if (feed_object.has(TAG_DESCRIPTION))
 
                             feedItem.setDescription(TextUtils.htmlEncode(feed_object.getString(TAG_DESCRIPTION)));
+                        if (feed_object.has(TAG_FEEDVIDEOS)) {
+                            JSONArray feedimagesarray = feed_object.getJSONArray(TAG_FEEDVIDEOS);
+                            ArrayList<String> strList = new ArrayList<String>();
+                            strList.clear();
+                            for (int j = 0; j < feedimagesarray.length(); j++) {
+                                JSONObject image_object = feedimagesarray.getJSONObject(j);
+                                if (image_object.has(TAG_URL)) {
+                                    strList.add(image_object.getString(TAG_URL));
+                                }
+                            }
+                            feedItem.setFeedvideos(strList);
 
+                        }
+                        if (feed_object.has(TAG_FEEDAUDIOS)) {
+                            JSONArray feedimagesarray = feed_object.getJSONArray(TAG_FEEDAUDIOS);
+                            ArrayList<String> strList = new ArrayList<String>();
+                            strList.clear();
+                            for (int j = 0; j < feedimagesarray.length(); j++) {
+                                JSONObject image_object = feedimagesarray.getJSONObject(j);
+                                if (image_object.has(TAG_URL)) {
+                                    strList.add(image_object.getString(TAG_URL));
+                                }
+                            }
+                            feedItem.setFeedaudios(strList);
+
+                        }
                         feedList.add(feedItem);
                     }
                     return true;

@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -60,6 +61,9 @@ public class MainFragment extends Fragment{
     public static final String API_KEY = "AIzaSyBRLKO5KlEEgFjVgf4M-lZzeGXW94m9w3U";
     public static final String VIDEO_ID = "gy5_T2ACerk";
     private static final String TAG_TIME = "time";
+    private static final String TAG_FEEDVIDEOS = "feedvideos";
+    private static final String TAG_FEEDAUDIOS = "feedaudios";
+
     Button btnshareApp;
     ArrayList<FeedItem> feedList;
     ArrayList<String> scrollimages;
@@ -78,13 +82,14 @@ public class MainFragment extends Fragment{
 	private Handler handler;
     ScreenSlidePagerAdapter pagerAdapter;
     CirclePageIndicator indicator;
+    CardView video_cardview;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootview = inflater.inflate(R.layout.fragment_main, container, false);
         listView = (RecyclerView) rootview.findViewById(R.id.listView_feedlist);
-
+        video_cardview = (CardView) rootview.findViewById(R.id.video_cardview);
 
        // recyclerView=(RecyclerView)view.findViewById(R.id.video_list);
         listView.setHasFixedSize(true);
@@ -163,9 +168,17 @@ public class MainFragment extends Fragment{
         {
             noFeedstv.setVisibility(View.VISIBLE);
         }
-        pagerAdapter.addAll(scrollimages);
-        pager.setAdapter(pagerAdapter);
-        indicator.setViewPager(pager);
+        if(scrollimages.size()>2) {
+            pagerAdapter.addAll(scrollimages);
+            pager.setAdapter(pagerAdapter);
+            indicator.setViewPager(pager);
+            pager.setVisibility(View.VISIBLE);
+            video_cardview.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            video_cardview.setVisibility(View.GONE);
+        }
       //  session.setLastNewsFeed(feedList);
     }
     public void getFeeds()
@@ -264,6 +277,32 @@ public  class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {
                                 } catch (java.text.ParseException e) {
                                     e.printStackTrace();
                                 }
+                            }
+                            if (feed_object.has(TAG_FEEDVIDEOS)) {
+                                JSONArray feedimagesarray = feed_object.getJSONArray(TAG_FEEDVIDEOS);
+                                ArrayList<String> strList = new ArrayList<String>();
+                                strList.clear();
+                                for (int j = 0; j < feedimagesarray.length(); j++) {
+                                    JSONObject image_object = feedimagesarray.getJSONObject(j);
+                                    if (image_object.has(TAG_URL)) {
+                                        strList.add(image_object.getString(TAG_URL));
+                                    }
+                                }
+                                feedItem.setFeedvideos(strList);
+
+                            }
+                            if (feed_object.has(TAG_FEEDAUDIOS)) {
+                                JSONArray feedimagesarray = feed_object.getJSONArray(TAG_FEEDAUDIOS);
+                                ArrayList<String> strList = new ArrayList<String>();
+                                strList.clear();
+                                for (int j = 0; j < feedimagesarray.length(); j++) {
+                                    JSONObject image_object = feedimagesarray.getJSONObject(j);
+                                    if (image_object.has(TAG_URL)) {
+                                        strList.add(image_object.getString(TAG_URL));
+                                    }
+                                }
+                                feedItem.setFeedaudios(strList);
+
                             }
                             feedList.add(feedItem);
                         }

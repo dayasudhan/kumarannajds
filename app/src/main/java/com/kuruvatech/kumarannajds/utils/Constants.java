@@ -9,7 +9,7 @@ public class Constants {
     public static final String DEBUG_URL = "http://chunavane.herokuapp.com";
 
     public static final String MAIN_URL = DEBUG_URL;
-    public static final String USERNAME = "hdk";
+    public static final String USERNAME = "apptest";
     public static final String PARTY = "jds";
     public static final String GET_FEEDS_URL = MAIN_URL + "/v2/feed/info/";
     public static final String GET_IMAGES_URL = MAIN_URL + "/v1/feed/images/";
